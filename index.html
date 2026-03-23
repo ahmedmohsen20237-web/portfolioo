@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>متابعة الاختبارات | AHMED MOHSEN</title>
+<title>متابعة انجاز | AHMED MOHSEN</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -54,8 +54,6 @@ nav {
 .btn:hover { border-color:var(--accent); color:var(--accent); }
 .btn-accent { background:var(--accent); border-color:var(--accent); color:#fff!important; }
 .btn-accent:hover { background:var(--accent2); border-color:var(--accent2); }
-.btn-save { background:linear-gradient(135deg,#6c5ce7,#a29bfe); border-color:#6c5ce7; color:#fff!important; }
-.btn-save:hover { background:linear-gradient(135deg,#5f27cd,#9b59b6); border-color:#5f27cd; color:#fff!important; }
 
 /* ══ PAGES ══ */
 .page { display:none; flex:1; flex-direction:column; }
@@ -108,11 +106,6 @@ nav {
 /* shape types */
 .shape-circle   { border-radius:50%; }
 .shape-square   { border-radius:6px; }
-.shape-rounded  { border-radius:30%; }
-.shape-diamond  { border-radius:4px; transform:rotate(45deg); }
-.shape-diamond:hover { transform:rotate(45deg) scale(1.12); }
-.shape-diamond.filled-glow { animation:gpD 2s infinite; }
-.shape-hexagon  { clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%); border-radius:0; border:none; }
 .shape-star     { clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); border-radius:0; border:none; }
 
 /* fill colors – 12 variants */
@@ -163,9 +156,6 @@ nav {
 .shape-btn:hover, .shape-btn.sel { border-color:var(--accent); background:rgba(26,188,156,.15); }
 .shape-btn-circle  { border-radius:50%; }
 .shape-btn-square  { border-radius:4px; }
-.shape-btn-rounded { border-radius:30%; }
-.shape-btn-diamond { border-radius:3px; transform:rotate(45deg); width:20px; height:20px; }
-.shape-btn-hex     { border-radius:3px; clip-path:polygon(25% 0%,75% 0%,100% 50%,75% 100%,25% 100%,0% 50%); }
 .shape-btn-star    { border-radius:0; clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
 
 /* ══ EXTENDED COLOR PICKER ══ */
@@ -210,13 +200,12 @@ footer { background:var(--nav-bg); border-top:1px solid var(--border); padding:.
 
 <nav>
   <a href="#" class="nav-logo" onclick="showHome();return false;">
-    <span class="logo-dot">🏆</span>
-    <span>AHMED MOHSEN</span>
+    <span class="logo-dot">🎯</span>
+    <span>متابعة انجاز</span>
   </a>
   <div class="nav-center" id="navTabs"></div>
   <div class="nav-actions">
     <button class="btn btn-accent" onclick="openNewPageModal()">+ صفحة</button>
-    <button class="btn btn-save" onclick="saveProgress()">💾 حفظ</button>
     <button class="btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
   </div>
 </nav>
@@ -242,9 +231,6 @@ footer { background:var(--nav-bg); border-top:1px solid var(--border); padding:.
         <span class="shape-sel-label">الشكل:</span>
         <div class="shape-btn shape-btn-circle sel" data-shape="circle" title="دائرة"></div>
         <div class="shape-btn shape-btn-square" data-shape="square" title="مربع"></div>
-        <div class="shape-btn shape-btn-rounded" data-shape="rounded" title="مدور"></div>
-        <div class="shape-btn shape-btn-diamond" data-shape="diamond" title="معين"></div>
-        <div class="shape-btn shape-btn-hex" data-shape="hexagon" title="سداسي"></div>
         <div class="shape-btn shape-btn-star" data-shape="star" title="نجمة"></div>
       </div>
       <!-- Color picker -->
@@ -264,7 +250,6 @@ footer { background:var(--nav-bg); border-top:1px solid var(--border); padding:.
         <div class="sw sw12" data-c="12"></div>
       </div>
       <button class="btn" onclick="openAddCircles()">+ عناصر</button>
-      <button class="btn btn-save" onclick="saveProgress()">💾</button>
       <button class="btn" onclick="resetPage()">تصفير</button>
       <button class="btn" onclick="deletePage()">🗑️</button>
       <button class="btn" onclick="goBack()">← رجوع</button>
@@ -277,7 +262,10 @@ footer { background:var(--nav-bg); border-top:1px solid var(--border); padding:.
 </div>
 
 <footer>
-  <span>© 2026 AHMED MOHSEN — جميع الحقوق محفوظة</span>
+  <div style="text-align:center;line-height:1.7;">
+    <div>© 2026 AHMED MOHSEN — جميع الحقوق محفوظة</div>
+    <div style="font-size:.7rem;margin-top:3px;color:var(--muted);opacity:.8;">الموقع غير ربحي هدفه مساعدة الجميع على تحديد أهدافهم ومتابعتها</div>
+  </div>
 </footer>
 
 <!-- ADD ELEMENTS MODAL -->
@@ -302,9 +290,6 @@ footer { background:var(--nav-bg); border-top:1px solid var(--border); padding:.
       <select id="newShape">
         <option value="circle">⬤ دائرة</option>
         <option value="square">■ مربع</option>
-        <option value="rounded">▣ مدور</option>
-        <option value="diamond">◆ معين</option>
-        <option value="hexagon">⬡ سداسي</option>
         <option value="star">★ نجمة</option>
       </select>
     </div>
@@ -326,33 +311,17 @@ let pages = (() => {
     const r = localStorage.getItem(STORE_KEY);
     if (r) return JSON.parse(r);
   } catch(e) {}
-  return [{ id:'p1', name:'اختبار لفظي', circles:Array(100).fill(0), shape:'circle' }];
+  return [{ id:'p1', name:'الصفحة الأولى', circles:Array(100).fill(0), shape:'circle' }];
 })();
 
 let curId      = null;
 let selColor   = 1;
 let selShape   = 'circle';
 let dark       = true;
-let lastSavedAt = null;
 
 // ══ SAVE TO LOCALSTORAGE ══
 function save() {
   try { localStorage.setItem(STORE_KEY, JSON.stringify(pages)); } catch(e) {}
-}
-
-// ══ EXPORT / SAVE PROGRESS (download JSON backup) ══
-function saveProgress() {
-  const data = {
-    exportedAt: new Date().toLocaleString('ar-SA'),
-    pages: pages
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `ahmed_mohsen_progress_${Date.now()}.json`;
-  a.click();
-  lastSavedAt = new Date();
-  showToast('💾 تم حفظ التقدم بنجاح');
 }
 
 // ══ THEME ══
@@ -407,7 +376,7 @@ function renderCards() {
     const d = document.createElement('div');
     d.className = 'page-card';
     d.style.animationDelay = idx * 60 + 'ms';
-    const shapeLabel = { circle:'دائرة', square:'مربع', rounded:'مدور', diamond:'معين', hexagon:'سداسي', star:'نجمة' }[p.shape||'circle'] || 'دائرة';
+    const shapeLabel = { circle:'دائرة', square:'مربع', star:'نجمة' }[p.shape||'circle'] || 'دائرة';
     d.innerHTML = `
       <div class="pc-title">${p.name}</div>
       <div class="pc-sub">${filled} / ${total} ${shapeLabel} • ${pct}% مكتمل</div>
