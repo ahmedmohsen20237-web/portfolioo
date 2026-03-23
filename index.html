@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+
+<html dir="rtl" lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>شبكة الدوائر | نور المعرفة</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
   --bg:#f4f6fb; --bg2:#eaecf4; --card:#ffffff; --nav-bg:#ffffff;
@@ -107,92 +108,92 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.65re
 .fsoc a{color:var(--muted);text-decoration:none;transition:color .2s;}
 .fsoc a:hover{color:var(--accent);}
 </style>
-</head>
+<style>
+body{background:#0f172a;color:white;transition:0.3s;font-family:sans-serif}
+.container{display:flex;flex-wrap:wrap;gap:6px}
+.shape{width:20px;height:20px;background:#38bdf8;border-radius:50%;transition:0.3s}
+.shape.square{border-radius:4px}
+.shape.triangle{clip-path: polygon(50% 0%, 0% 100%, 100% 100%)}
+.controls{margin:10px 0}
+button{margin:5px;padding:6px 10px;cursor:pointer}
+</style></head>
 <body>
-
 <nav>
-  <a href="#" class="nav-logo" onclick="showHome();return false;">
-    <span class="logo-dot">🌐</span>
-    <span>نور المعرفة</span>
-  </a>
-  <div class="nav-center" id="navTabs"></div>
-  <div class="nav-actions">
-    <button class="btn btn-accent" onclick="openNewPageModal()">+ صفحة</button>
-    <button class="btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
-  </div>
+<a class="nav-logo" href="#" onclick="showHome();return false;">
+<span class="logo-dot">🌐</span>
+<span>نور المعرفة</span>
+</a>
+<div class="nav-center" id="navTabs"></div>
+<div class="nav-actions">
+<button class="btn btn-accent" onclick="openNewPageModal()">+ صفحة</button>
+<button class="btn" id="themeBtn" onclick="toggleTheme()">🌙</button>
+</div>
 </nav>
-
 <!-- HOME -->
 <div class="page active" id="homePage">
-  <div class="home-wrap">
-    <h2>📋 صفحاتك</h2>
-    <div class="page-cards" id="pageCards"></div>
-  </div>
+<div class="home-wrap">
+<h2>📋 صفحاتك</h2>
+<div class="page-cards" id="pageCards"></div>
 </div>
-
+</div>
 <!-- GRID -->
 <div class="page" id="gridPage">
-  <div class="grid-header">
-    <div>
-      <div class="grid-title" id="gridTitle">—</div>
-      <div class="grid-meta" id="gridMeta">—</div>
-    </div>
-    <div class="grid-controls">
-      <div class="cpick" id="cpick">
-        <span class="cpick-label">اللون:</span>
-        <div class="sw sw1 sel" data-c="1"></div>
-        <div class="sw sw2" data-c="2"></div>
-        <div class="sw sw3" data-c="3"></div>
-        <div class="sw sw4" data-c="4"></div>
-        <div class="sw sw5" data-c="5"></div>
-        <div class="sw sw6" data-c="6"></div>
-      </div>
-      <button class="btn" onclick="openAddCircles()">+ دوائر</button>
-      <button class="btn" onclick="resetPage()">تصفير</button>
-      <button class="btn" onclick="deletePage()">🗑️</button>
-      <button class="btn" onclick="showHome()">← رجوع</button>
-    </div>
-  </div>
-  <div class="progress-strip"><div class="ps-fill" id="psFill"></div></div>
-  <div class="grid-wrapper">
-    <div class="circle-grid" id="circleGrid"></div>
-  </div>
+<div class="grid-header">
+<div>
+<div class="grid-title" id="gridTitle">—</div>
+<div class="grid-meta" id="gridMeta">—</div>
 </div>
-
+<div class="grid-controls">
+<div class="cpick" id="cpick">
+<span class="cpick-label">اللون:</span>
+<div class="sw sw1 sel" data-c="1"></div>
+<div class="sw sw2" data-c="2"></div>
+<div class="sw sw3" data-c="3"></div>
+<div class="sw sw4" data-c="4"></div>
+<div class="sw sw5" data-c="5"></div>
+<div class="sw sw6" data-c="6"></div>
+</div>
+<button class="btn" onclick="openAddCircles()">+ دوائر</button>
+<button class="btn" onclick="resetPage()">تصفير</button>
+<button class="btn" onclick="deletePage()">🗑️</button>
+<button class="btn" onclick="showHome()">← رجوع</button>
+</div>
+</div>
+<div class="progress-strip"><div class="ps-fill" id="psFill"></div></div>
+<div class="grid-wrapper">
+<div class="circle-grid" id="circleGrid"></div>
+</div>
+</div>
 <footer>
-  <span>© 2024 نور المعرفة — جميع الحقوق محفوظة</span>
-  <div class="fsoc">
-    <a href="#">f</a><a href="#">𝕏</a><a href="#">in</a><a href="#">▶</a>
-  </div>
+<span>© 2024 نور المعرفة — جميع الحقوق محفوظة</span>
+<div class="fsoc">
+<a href="#">f</a><a href="#">𝕏</a><a href="#">in</a><a href="#">▶</a>
+</div>
 </footer>
-
 <!-- ADD CIRCLES MODAL -->
 <div class="modal-overlay" id="modalAdd">
-  <div class="modal">
-    <h3>➕ إضافة دوائر</h3>
-    <div><label>عدد الدوائر</label><input type="number" id="addN" value="10" min="1" max="9999"></div>
-    <div class="modal-row">
-      <button class="btn" onclick="closeModal('modalAdd')">إلغاء</button>
-      <button class="btn btn-accent" onclick="confirmAdd()">إضافة</button>
-    </div>
-  </div>
+<div class="modal">
+<h3>➕ إضافة دوائر</h3>
+<div><label>عدد الدوائر</label><input id="addN" max="9999" min="1" type="number" value="10"/></div>
+<div class="modal-row">
+<button class="btn" onclick="closeModal('modalAdd')">إلغاء</button>
+<button class="btn btn-accent" onclick="confirmAdd()">إضافة</button>
 </div>
-
+</div>
+</div>
 <!-- NEW PAGE MODAL -->
 <div class="modal-overlay" id="modalNew">
-  <div class="modal">
-    <h3>📄 صفحة جديدة</h3>
-    <div><label>اسم الصفحة</label><input type="text" id="newName" placeholder="مثال: سورة البقرة" maxlength="40"></div>
-    <div><label>عدد الدوائر الابتدائي</label><input type="number" id="newCount" value="215" min="1" max="9999"></div>
-    <div class="modal-row">
-      <button class="btn" onclick="closeModal('modalNew')">إلغاء</button>
-      <button class="btn btn-accent" onclick="confirmNewPage()">إنشاء</button>
-    </div>
-  </div>
+<div class="modal">
+<h3>📄 صفحة جديدة</h3>
+<div><label>اسم الصفحة</label><input id="newName" maxlength="40" placeholder="مثال: سورة البقرة" type="text"/></div>
+<div><label>عدد الدوائر الابتدائي</label><input id="newCount" max="9999" min="1" type="number" value="215"/></div>
+<div class="modal-row">
+<button class="btn" onclick="closeModal('modalNew')">إلغاء</button>
+<button class="btn btn-accent" onclick="confirmNewPage()">إنشاء</button>
 </div>
-
+</div>
+</div>
 <div class="toast" id="toast"></div>
-
 <script>
 // ── STATE ──
 let pages = (() => {
@@ -401,5 +402,50 @@ function showToast(msg){
 // ── BOOT ──
 showHome();
 </script>
-</body>
+<script>
+const container = document.createElement('div');
+container.className='container';
+document.body.appendChild(container);
+
+let shapeType='circle';
+
+function createShapes(n=100){
+ container.innerHTML='';
+ for(let i=0;i<n;i++){
+  const el=document.createElement('div');
+  el.className='shape';
+  if(shapeType!=='circle') el.classList.add(shapeType);
+  el.style.background = `hsl(${Math.random()*360},70%,60%)`;
+  container.appendChild(el);
+ }
+}
+
+createShapes();
+
+const controls=document.createElement('div');
+controls.className='controls';
+controls.innerHTML=`
+<button onclick="setShape('circle')">دائرة</button>
+<button onclick="setShape('square')">مربع</button>
+<button onclick="setShape('triangle')">مثلث</button>
+<button onclick="saveProgress()">💾 حفظ</button>
+<button onclick="loadProgress()">📂 استرجاع</button>
+`;
+document.body.prepend(controls);
+
+function setShape(type){
+ shapeType=type;
+ createShapes();
+}
+
+function saveProgress(){
+ localStorage.setItem('shapeType',shapeType);
+ alert('تم الحفظ');
+}
+
+function loadProgress(){
+ shapeType=localStorage.getItem('shapeType')||'circle';
+ createShapes();
+}
+</script></body>
 </html>
