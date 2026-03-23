@@ -122,6 +122,27 @@ nav {
 .shape-item.f11 { background:var(--f11)!important; }
 .shape-item.f12 { background:var(--f12)!important; }
 
+/* ══ NUMBERING ══ */
+.shape-item .num-label {
+  position:absolute; inset:0;
+  display:none; align-items:center; justify-content:center;
+  font-family:'Cairo',sans-serif; font-weight:700;
+  pointer-events:none; line-height:1;
+  z-index:3;
+}
+.show-nums .shape-item .num-label { display:flex; }
+
+/* font size scales with shape size — set via JS */
+.shape-item .num-label { font-size:clamp(7px,1.6vw,13px); }
+
+/* unfilled: dark text; filled: white text */
+.shape-item .num-label { color: #555; }
+.shape-item.filled .num-label { color: rgba(255,255,255,.92); text-shadow:0 1px 3px rgba(0,0,0,.35); }
+[data-theme="dark"] .shape-item .num-label { color: #888; }
+
+/* btn-num active state */
+.btn-num-on { background:var(--accent)!important; border-color:var(--accent)!important; color:#fff!important; }
+
 .shape-item.glow { animation:gp 2s infinite; }
 @keyframes gp {
   0%,100% { box-shadow:0 0 0 3px rgba(0,210,255,.7),0 0 18px rgba(0,210,255,.5),0 0 38px rgba(0,210,255,.28); }
@@ -250,6 +271,7 @@ footer { background:var(--nav-bg); border-top:1px solid var(--border); padding:.
         <div class="sw sw12" data-c="12"></div>
       </div>
       <button class="btn" onclick="openAddCircles()">+ عناصر</button>
+      <button class="btn" id="numBtn" onclick="toggleNums()" title="تفعيل/إيقاف الترقيم">١٢٣ ترقيم</button>
       <button class="btn" onclick="resetPage()">تصفير</button>
       <button class="btn" onclick="deletePage()">🗑️</button>
       <button class="btn" onclick="goBack()">← رجوع</button>
@@ -318,6 +340,23 @@ let curId      = null;
 let selColor   = 1;
 let selShape   = 'circle';
 let dark       = true;
+let showNums   = false;
+
+// ══ NUMBERING TOGGLE ══
+function toggleNums() {
+  showNums = !showNums;
+  const grid = document.getElementById('circleGrid');
+  const btn  = document.getElementById('numBtn');
+  if (showNums) {
+    grid.classList.add('show-nums');
+    btn.classList.add('btn-num-on');
+    btn.textContent = '١٢٣ إخفاء';
+  } else {
+    grid.classList.remove('show-nums');
+    btn.classList.remove('btn-num-on');
+    btn.textContent = '١٢٣ ترقيم';
+  }
+}
 
 // ══ SAVE TO LOCALSTORAGE ══
 function save() {
@@ -427,12 +466,23 @@ function renderGrid() {
   const grid = document.getElementById('circleGrid');
   grid.innerHTML = '';
   const shape = page.shape || 'circle';
+  // restore numbering class
+  if (showNums) grid.classList.add('show-nums');
+  else grid.classList.remove('show-nums');
+
   page.circles.forEach((v, i) => {
     const el = document.createElement('div');
     el.className = `shape-item shape-${shape}`;
     if (v > 0) el.classList.add('filled', `f${v}`);
     el.style.opacity = '0';
     el.style.animation = `fadeIn .35s ${Math.min(i * 4, 800)}ms ease forwards`;
+
+    // number label
+    const lbl = document.createElement('span');
+    lbl.className = 'num-label';
+    lbl.textContent = i + 1;
+    el.appendChild(lbl);
+
     el.onclick = () => toggleC(i, el);
     grid.appendChild(el);
   });
