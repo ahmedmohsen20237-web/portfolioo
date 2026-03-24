@@ -4,14 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>متابعة انجاز | AHMED MOHSEN</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7F5E1V1XV8"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-7F5E1V1XV8');
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-/* ══ COLORS ══ */
 :root {
-  --bg:#f4f6fb; --bg2:#eaecf4; --card:#fff; --nav-bg:#fff;
-  --border:#d8dce8; --text:#1a1c2e; --muted:#6b7280;
-  --accent:#1abc9c; --accent2:#16a085;
-  --empty:#fff; --empty-border:#c5c9d8;
+  --bg:#f4f6fb;--bg2:#eaecf4;--card:#fff;--nav-bg:#fff;
+  --border:#d8dce8;--text:#1a1c2e;--muted:#6b7280;
+  --accent:#1abc9c;--accent2:#16a085;
+  --empty:#fff;--empty-border:#c5c9d8;
   --f1:#1abc9c;--f2:#e74c3c;--f3:#9b59b6;--f4:#f39c12;
   --f5:#2980b9;--f6:#e67e22;--f7:#1dd1a1;--f8:#fd79a8;
   --f9:#6c5ce7;--f10:#00b894;--f11:#f0c040;--f12:#a29bfe;
@@ -25,29 +34,23 @@
   --f5:#1b6b9e;--f6:#ca6f1e;--f7:#17a589;--f8:#e91e8c;
   --f9:#5f27cd;--f10:#00897b;--f11:#e6b800;--f12:#7c4dff;
 }
-
-/* Number contrast per fill color */
-.f1  .num-label,.f7 .num-label,.f10 .num-label{color:#004d3a!important;}
-.f2  .num-label{color:#fff!important;}
-.f3  .num-label{color:#f0e6ff!important;}
-.f4  .num-label{color:#4a2d00!important;}
-.f5  .num-label{color:#e8f4ff!important;}
-.f6  .num-label{color:#3a1800!important;}
-.f8  .num-label{color:#4a0025!important;}
-.f9  .num-label,.f12 .num-label{color:#e8e4ff!important;}
+.f1 .num-label,.f7 .num-label,.f10 .num-label{color:#004d3a!important;}
+.f2 .num-label{color:#fff!important;}
+.f3 .num-label{color:#f0e6ff!important;}
+.f4 .num-label{color:#4a2d00!important;}
+.f5 .num-label{color:#e8f4ff!important;}
+.f6 .num-label{color:#3a1800!important;}
+.f8 .num-label{color:#4a0025!important;}
+.f9 .num-label,.f12 .num-label{color:#e8e4ff!important;}
 .f11 .num-label{color:#3a2d00!important;}
 
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);
-  transition:background var(--t),color var(--t);min-height:100vh;display:flex;flex-direction:column;}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);transition:background var(--t),color var(--t);min-height:100vh;display:flex;flex-direction:column;}
 
-/* ══ NAV ══ */
-nav{background:var(--nav-bg);border-bottom:1px solid var(--border);padding:0 1rem;height:54px;
-  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;
-  transition:background var(--t),border-color var(--t);gap:.6rem;}
+nav{background:var(--nav-bg);border-bottom:1px solid var(--border);padding:0 1rem;height:54px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;transition:background var(--t),border-color var(--t);gap:.6rem;}
 .nav-logo{display:flex;align-items:center;gap:7px;font-size:1rem;font-weight:900;color:var(--text);text-decoration:none;white-space:nowrap;}
 .logo-dot{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;box-shadow:0 0 10px rgba(26,188,156,.4);}
-.nav-center{display:flex;gap:3px;overflow-x:auto;max-width:50vw;}
+.nav-center{display:flex;gap:3px;overflow-x:auto;max-width:46vw;}
 .nav-center::-webkit-scrollbar{height:3px;}
 .nav-center::-webkit-scrollbar-thumb{background:var(--accent);border-radius:9px;}
 .nav-tab{padding:4px 11px;border-radius:7px;border:none;background:none;font-family:'Cairo',sans-serif;font-size:.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:background .2s,color .2s;white-space:nowrap;}
@@ -59,25 +62,24 @@ nav{background:var(--nav-bg);border-bottom:1px solid var(--border);padding:0 1re
 .btn-accent{background:var(--accent);border-color:var(--accent);color:#fff!important;}
 .btn-accent:hover{background:var(--accent2);border-color:var(--accent2);}
 .btn-on{background:var(--accent)!important;border-color:var(--accent)!important;color:#fff!important;}
-.btn-danger{border-color:#e74c3c;color:#e74c3c;}
-.btn-danger:hover{background:#e74c3c;color:#fff;}
+.btn-admin{background:linear-gradient(135deg,#6c5ce7,#a29bfe);border-color:#6c5ce7;color:#fff!important;}
+.btn-admin:hover{background:linear-gradient(135deg,#5f27cd,#9b59b6);border-color:#5f27cd;color:#fff!important;}
 
-/* ══ ANIMATIONS ══ */
 @keyframes slideInRight{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:translateX(0)}}
-@keyframes slideInLeft {from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
-@keyframes fadeInUp   {from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@keyframes popIn      {from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
-@keyframes fadeIn     {to{opacity:1}}
-@keyframes clickPop   {0%{transform:scale(1)}40%{transform:scale(1.22)}100%{transform:scale(1)}}
-@keyframes gp         {0%,100%{box-shadow:0 0 0 3px rgba(0,210,255,.7),0 0 18px rgba(0,210,255,.5),0 0 38px rgba(0,210,255,.28)}50%{box-shadow:0 0 0 5px rgba(0,210,255,.9),0 0 32px rgba(0,210,255,.7),0 0 60px rgba(0,210,255,.4)}}
+@keyframes slideInLeft{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes popIn{from{opacity:0;transform:scale(.93)}to{opacity:1;transform:scale(1)}}
+@keyframes fadeIn{to{opacity:1}}
+@keyframes clickPop{0%{transform:scale(1)}40%{transform:scale(1.22)}100%{transform:scale(1)}}
+@keyframes gp{0%,100%{box-shadow:0 0 0 3px rgba(0,210,255,.7),0 0 18px rgba(0,210,255,.5),0 0 38px rgba(0,210,255,.28)}50%{box-shadow:0 0 0 5px rgba(0,210,255,.9),0 0 32px rgba(0,210,255,.7),0 0 60px rgba(0,210,255,.4)}}
+@keyframes spin{to{transform:rotate(360deg)}}
 
-/* ══ PAGES ══ */
 .page{display:none;flex:1;flex-direction:column;}
 .page.active{display:flex;}
 .page.active.anim-right{animation:slideInRight .32s ease;}
-.page.active.anim-left {animation:slideInLeft  .32s ease;}
+.page.active.anim-left{animation:slideInLeft .32s ease;}
 
-/* ══ HOME ══ */
+/* HOME */
 .home-wrap{padding:1.4rem;max-width:960px;margin:0 auto;width:100%;animation:fadeInUp .35s ease;}
 .home-wrap h2{font-size:1rem;font-weight:700;margin-bottom:1rem;}
 .page-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:11px;}
@@ -92,88 +94,81 @@ nav{background:var(--nav-bg);border-bottom:1px solid var(--border);padding:0 1re
 .add-card{background:var(--card);border:2px dashed var(--border);border-radius:13px;padding:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;color:var(--muted);font-size:.83rem;font-weight:600;transition:border-color .2s,color .2s;min-height:100px;animation:popIn .3s ease;}
 .add-card:hover{border-color:var(--accent);color:var(--accent);}
 
-/* ══ TOOLBAR (inside page) ══ */
+/* GRID PAGE */
 .grid-header{padding:.75rem 1.2rem .3rem;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:7px;}
 .grid-title-row{display:flex;align-items:center;gap:7px;}
 .grid-title{font-size:.95rem;font-weight:700;cursor:pointer;border-bottom:1px dashed transparent;transition:border-color .2s;}
 .grid-title:hover{border-color:var(--accent);}
 .grid-title-input{font-size:.95rem;font-weight:700;border:none;border-bottom:2px solid var(--accent);background:transparent;color:var(--text);font-family:'Cairo',sans-serif;outline:none;width:160px;}
 .grid-meta{font-size:.75rem;color:var(--muted);margin-top:2px;}
-
-/* toolbar panels */
+.grid-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
 .toolbar{padding:0 1.2rem .5rem;display:flex;flex-direction:column;gap:7px;}
 .tool-panel{background:var(--card);border:1px solid var(--border);border-radius:11px;padding:.6rem .85rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;animation:fadeInUp .25s ease;}
 .tool-panel-label{font-size:.72rem;color:var(--muted);font-weight:700;white-space:nowrap;min-width:44px;}
-
-/* shape buttons in toolbar */
 .shp-btn{width:28px;height:28px;cursor:pointer;background:var(--bg2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color .2s,background .2s;}
 .shp-btn:hover,.shp-btn.sel{border-color:var(--accent);background:rgba(26,188,156,.18);}
-.shp-circle {border-radius:50%;}
-.shp-square {border-radius:4px;}
-.shp-star   {clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);border:none!important;background:var(--muted)!important;}
+.shp-circle{border-radius:50%;}
+.shp-square{border-radius:4px;}
+.shp-star{clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);border:none!important;background:var(--muted)!important;}
 .shp-star.sel{background:var(--accent)!important;}
-
-/* color swatches in toolbar */
 .csw{width:22px;height:22px;border-radius:50%;cursor:pointer;border:2.5px solid transparent;flex-shrink:0;transition:transform .15s,border-color .15s;}
 .csw:hover,.csw.sel{transform:scale(1.3);border-color:#fff;}
 [data-theme="dark"] .csw:hover,[data-theme="dark"] .csw.sel{border-color:#ccc;}
-
-/* ══ PROGRESS ══ */
 .progress-strip{margin:0 1.2rem .35rem;background:var(--bg2);border-radius:999px;height:5px;overflow:hidden;}
 .ps-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),#9b59b6);transition:width .45s;}
-
 .grid-wrapper{flex:1;padding:.35rem 1.2rem 1.2rem;overflow-y:auto;}
 .circle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(44px,1fr));gap:7px;max-width:1400px;}
 
-/* ══ SHAPES ══ */
-.shape-item{aspect-ratio:1;cursor:pointer;background:var(--empty);border:2px solid var(--empty-border);
-  transition:transform .18s,box-shadow .25s,background .25s,border-color .25s,border-radius .3s;
-  position:relative;overflow:visible;}
+/* SHAPES */
+.shape-item{aspect-ratio:1;cursor:pointer;background:var(--empty);border:2px solid var(--empty-border);transition:transform .18s,box-shadow .25s,background .25s,border-color .25s;position:relative;overflow:visible;}
 .shape-item:hover{transform:scale(1.1);z-index:2;}
 .shape-item.filled{border-color:transparent;}
 .shape-circle{border-radius:50%;}
 .shape-square{border-radius:6px;}
 .shape-star{clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);border-radius:0;border:none!important;}
-.shape-item.f1 {background:var(--f1)!important;}
-.shape-item.f2 {background:var(--f2)!important;}
-.shape-item.f3 {background:var(--f3)!important;}
-.shape-item.f4 {background:var(--f4)!important;}
-.shape-item.f5 {background:var(--f5)!important;}
-.shape-item.f6 {background:var(--f6)!important;}
-.shape-item.f7 {background:var(--f7)!important;}
-.shape-item.f8 {background:var(--f8)!important;}
-.shape-item.f9 {background:var(--f9)!important;}
-.shape-item.f10{background:var(--f10)!important;}
-.shape-item.f11{background:var(--f11)!important;}
-.shape-item.f12{background:var(--f12)!important;}
+.shape-item.f1{background:var(--f1)!important;}.shape-item.f2{background:var(--f2)!important;}
+.shape-item.f3{background:var(--f3)!important;}.shape-item.f4{background:var(--f4)!important;}
+.shape-item.f5{background:var(--f5)!important;}.shape-item.f6{background:var(--f6)!important;}
+.shape-item.f7{background:var(--f7)!important;}.shape-item.f8{background:var(--f8)!important;}
+.shape-item.f9{background:var(--f9)!important;}.shape-item.f10{background:var(--f10)!important;}
+.shape-item.f11{background:var(--f11)!important;}.shape-item.f12{background:var(--f12)!important;}
 .shape-item.glow{animation:gp 2s infinite;}
 .shape-circle.pop,.shape-square.pop,.shape-star.pop{animation:clickPop .28s ease;}
 
-/* ══ NUMBER LABEL ══ */
-.num-label{
-  position:absolute;
-  inset:0;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  font-family:'Cairo',sans-serif;
-  font-weight:900;
-  pointer-events:none;
-  line-height:1;
-  z-index:4;
-  /* Responsive font: fits the shape (shape is ~44px base, scales with grid) */
-  font-size:clamp(8px, 2.2vw, 14px);
-  /* contrast on empty shapes */
-  color:rgba(100,100,100,.75);
-  text-shadow: 0 1px 2px rgba(255,255,255,.5);
-}
+/* NUMBERING */
+.num-label{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-family:'Cairo',sans-serif;font-weight:900;pointer-events:none;line-height:1;z-index:4;font-size:clamp(8px,2.2vw,14px);color:rgba(100,100,100,.75);text-shadow:0 1px 2px rgba(255,255,255,.5);}
 [data-theme="dark"] .num-label{color:rgba(180,180,180,.7);text-shadow:0 1px 2px rgba(0,0,0,.4);}
 .show-nums .shape-item .num-label{display:flex;}
-
-/* filled shapes: per-color contrast overrides (declared at top of CSS) */
 .shape-item.filled .num-label{text-shadow:0 1px 3px rgba(0,0,0,.4);}
 
-/* ══ MODAL ══ */
+/* ══ ADMIN DASHBOARD PAGE ══ */
+.admin-wrap{padding:1.4rem;max-width:1100px;margin:0 auto;width:100%;animation:fadeInUp .35s ease;}
+.admin-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;flex-wrap:wrap;gap:10px;}
+.admin-header h2{font-size:1.1rem;font-weight:900;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:11px;margin-bottom:1.4rem;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:1rem;text-align:center;animation:popIn .3s ease;}
+.stat-num{font-size:1.8rem;font-weight:900;color:var(--accent);}
+.stat-label{font-size:.73rem;color:var(--muted);margin-top:3px;}
+.admin-table-wrap{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden;margin-bottom:1.2rem;}
+.admin-table-head{padding:.75rem 1rem;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
+.admin-table-head h3{font-size:.88rem;font-weight:700;}
+table{width:100%;border-collapse:collapse;font-size:.78rem;}
+th{background:var(--bg2);padding:.6rem 1rem;text-align:right;font-weight:700;color:var(--muted);border-bottom:1px solid var(--border);}
+td{padding:.65rem 1rem;border-bottom:1px solid var(--border);color:var(--text);vertical-align:middle;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:rgba(26,188,156,.04);}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:.68rem;font-weight:700;}
+.badge-green{background:rgba(26,188,156,.15);color:#1abc9c;}
+.badge-blue{background:rgba(41,128,185,.15);color:#2980b9;}
+.badge-purple{background:rgba(155,89,182,.15);color:#9b59b6;}
+.search-box{padding:5px 12px;border-radius:18px;border:1px solid var(--border);background:var(--bg2);font-family:'Cairo',sans-serif;font-size:.76rem;color:var(--text);outline:none;width:180px;transition:border-color .2s;}
+.search-box:focus{border-color:var(--accent);}
+.spinner{width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:2rem auto;}
+.empty-state{text-align:center;padding:2rem;color:var(--muted);font-size:.85rem;}
+.online-dot{width:8px;height:8px;border-radius:50%;background:#1abc9c;display:inline-block;margin-left:5px;box-shadow:0 0 6px rgba(26,188,156,.6);}
+.offline-dot{width:8px;height:8px;border-radius:50%;background:#e74c3c;display:inline-block;margin-left:5px;}
+
+/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.58);backdrop-filter:blur(5px);z-index:500;align-items:center;justify-content:center;}
 .modal-overlay.open{display:flex;animation:fadeInUp .22s ease;}
 .modal{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.6rem;width:min(430px,93vw);display:flex;flex-direction:column;gap:13px;}
@@ -184,23 +179,16 @@ nav{background:var(--nav-bg);border-bottom:1px solid var(--border);padding:0 1re
 .modal-row{display:flex;gap:8px;justify-content:flex-end;}
 .modal-hint{font-size:.72rem;color:var(--muted);background:var(--bg2);border-radius:7px;padding:6px 10px;line-height:1.5;}
 
-/* ══ TOAST ══ */
+/* TOAST */
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(55px);background:var(--card);border:1px solid var(--border);border-radius:9px;padding:8px 16px;font-size:.8rem;font-weight:600;box-shadow:0 7px 26px rgba(0,0,0,.18);z-index:700;transition:transform .28s,opacity .28s;opacity:0;pointer-events:none;}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
 
-/* ══ FOOTER ══ */
 footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem 1.2rem;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.71rem;color:var(--muted);transition:background var(--t),border-color var(--t);line-height:1.7;}
-
-/* ══ GRID CONTROLS ROW ══ */
-.grid-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap;}
-
-/* lock badge on nav tab */
 .tab-lock{font-size:.65rem;margin-right:3px;opacity:.7;}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo" onclick="showHome();return false;">
     <span class="logo-dot">🎯</span>
@@ -209,11 +197,12 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   <div class="nav-center" id="navTabs"></div>
   <div class="nav-actions">
     <button class="btn btn-accent" onclick="openNewPageModal()">+ صفحة</button>
+    <button class="btn btn-admin" onclick="openAdminLogin()" title="لوحة التحكم">⚙️</button>
     <button class="btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
   </div>
 </nav>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <div class="page active" id="homePage">
   <div class="home-wrap">
     <h2>📋 صفحاتك</h2>
@@ -223,13 +212,12 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
 
 <!-- GRID PAGE -->
 <div class="page" id="gridPage">
-  <!-- Title row -->
   <div class="grid-header">
     <div>
       <div class="grid-title-row">
         <span class="grid-title" id="gridTitle" onclick="startRename()" title="اضغط لتغيير الاسم">—</span>
         <input class="grid-title-input" id="gridTitleInput" style="display:none" onblur="finishRename()" onkeydown="if(event.key==='Enter')finishRename()">
-        <span style="font-size:.7rem;color:var(--muted);cursor:pointer;" onclick="startRename()" title="تعديل الاسم">✏️</span>
+        <span style="font-size:.7rem;color:var(--muted);cursor:pointer;" onclick="startRename()">✏️</span>
       </div>
       <div class="grid-meta" id="gridMeta">—</div>
     </div>
@@ -242,10 +230,7 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
       <button class="btn" onclick="goBack()">← رجوع</button>
     </div>
   </div>
-
-  <!-- TOOLBAR PANELS -->
   <div class="toolbar">
-    <!-- Shape panel -->
     <div class="tool-panel">
       <span class="tool-panel-label">الشكل:</span>
       <div id="shapeSel" style="display:flex;gap:7px;align-items:center;">
@@ -254,7 +239,6 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
         <div class="shp-btn shp-star"       data-shape="star"   title="نجمة"></div>
       </div>
     </div>
-    <!-- Color panel -->
     <div class="tool-panel">
       <span class="tool-panel-label">اللون:</span>
       <div id="cpick" style="display:flex;gap:5px;flex-wrap:wrap;align-items:center;">
@@ -273,10 +257,44 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
       </div>
     </div>
   </div>
-
   <div class="progress-strip"><div class="ps-fill" id="psFill"></div></div>
-  <div class="grid-wrapper">
-    <div class="circle-grid" id="circleGrid"></div>
+  <div class="grid-wrapper"><div class="circle-grid" id="circleGrid"></div></div>
+</div>
+
+<!-- ADMIN DASHBOARD PAGE -->
+<div class="page" id="adminPage">
+  <div class="admin-wrap">
+    <div class="admin-header">
+      <h2>⚙️ لوحة التحكم</h2>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn" onclick="loadDashboard()">🔄 تحديث</button>
+        <button class="btn" onclick="exportCSV()">📥 تصدير CSV</button>
+        <button class="btn" onclick="showHome()">← خروج</button>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stat-grid" id="statGrid">
+      <div class="stat-card"><div class="stat-num" id="statUsers">—</div><div class="stat-label">إجمالي المستخدمين</div></div>
+      <div class="stat-card"><div class="stat-num" id="statSessions">—</div><div class="stat-label">إجمالي الجلسات</div></div>
+      <div class="stat-card"><div class="stat-num" id="statPages">—</div><div class="stat-label">إجمالي الصفحات</div></div>
+      <div class="stat-card"><div class="stat-num" id="statAvgPct">—</div><div class="stat-label">متوسط الإنجاز</div></div>
+    </div>
+
+    <!-- Users table -->
+    <div class="admin-table-wrap">
+      <div class="admin-table-head">
+        <h3>👥 المستخدمون</h3>
+        <input class="search-box" id="searchBox" placeholder="بحث..." oninput="filterUsers()">
+      </div>
+      <div id="usersTableWrap"><div class="spinner"></div></div>
+    </div>
+
+    <!-- Recent sessions -->
+    <div class="admin-table-wrap">
+      <div class="admin-table-head"><h3>🕐 آخر الجلسات</h3></div>
+      <div id="sessionsTableWrap"><div class="spinner"></div></div>
+    </div>
   </div>
 </div>
 
@@ -287,9 +305,7 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </footer>
 
-<!-- ══ MODALS ══ -->
-
-<!-- Add elements -->
+<!-- MODALS -->
 <div class="modal-overlay" id="modalAdd">
   <div class="modal">
     <h3>➕ إضافة عناصر</h3>
@@ -301,12 +317,11 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </div>
 
-<!-- Bulk fill -->
 <div class="modal-overlay" id="modalBulk">
   <div class="modal">
     <h3>🎨 تلوين عدد محدد</h3>
-    <div><label>عدد العناصر المراد تلوينها</label><input type="number" id="bulkN" value="10" min="1" max="9999"></div>
-    <div class="modal-hint">سيتم تلوين العناصر الفارغة بالتسلسل باللون المختار حالياً.</div>
+    <div><label>عدد العناصر</label><input type="number" id="bulkN" value="10" min="1" max="9999"></div>
+    <div class="modal-hint">سيتم تلوين العناصر الفارغة بالتسلسل باللون المختار.</div>
     <div class="modal-row">
       <button class="btn" onclick="closeModal('modalBulk')">إلغاء</button>
       <button class="btn btn-accent" onclick="confirmBulk()">تلوين</button>
@@ -314,7 +329,6 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </div>
 
-<!-- New page -->
 <div class="modal-overlay" id="modalNew">
   <div class="modal">
     <h3>📄 صفحة جديدة</h3>
@@ -328,11 +342,11 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
       </select>
     </div>
     <div style="border-top:1px solid var(--border);padding-top:10px;">
-      <label>🔒 رقم سري للصفحة (اختياري)</label>
-      <input type="password" id="newPin" placeholder="اتركه فارغاً إن لم تُرِد قفلاً" maxlength="20" autocomplete="new-password">
+      <label>🔒 رقم سري (اختياري)</label>
+      <input type="password" id="newPin" placeholder="اتركه فارغاً إن لم تُرِد قفلاً" maxlength="20">
     </div>
     <div id="newPinExtra" style="display:none;">
-      <label>📖 اسم كتابك المفضل (لاسترداد كلمة السر)</label>
+      <label>📖 اسم كتابك المفضل (للاسترداد)</label>
       <input type="text" id="newBook" placeholder="مثال: زين الدين" maxlength="60">
     </div>
     <div class="modal-row">
@@ -342,13 +356,12 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </div>
 
-<!-- PIN entry -->
 <div class="modal-overlay" id="modalPin">
   <div class="modal">
     <h3>🔒 الصفحة محمية</h3>
-    <div><label>أدخل الرقم السري</label><input type="password" id="pinEntry" placeholder="الرقم السري" maxlength="20" autocomplete="off"></div>
+    <div><label>أدخل الرقم السري</label><input type="password" id="pinEntry" placeholder="الرقم السري" maxlength="20"></div>
     <div class="modal-row" style="justify-content:space-between;flex-wrap:wrap;gap:8px;">
-      <button class="btn" onclick="openRecovery()" style="color:var(--muted);">نسيت كلمة السر؟</button>
+      <button class="btn" onclick="openRecovery()">نسيت كلمة السر؟</button>
       <div style="display:flex;gap:8px;">
         <button class="btn" onclick="cancelPin()">إلغاء</button>
         <button class="btn btn-accent" onclick="confirmPin()">دخول</button>
@@ -357,11 +370,9 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </div>
 
-<!-- PIN recovery -->
 <div class="modal-overlay" id="modalRecovery">
   <div class="modal">
     <h3>🔑 استرداد كلمة السر</h3>
-    <div class="modal-hint">أجب عن السؤال الأمني لفتح الصفحة.</div>
     <div><label>📖 ما اسم كتابك المفضل؟</label><input type="text" id="recoveryBook" placeholder="أجب هنا..." maxlength="60"></div>
     <div id="recoveryError" style="font-size:.76rem;color:#e74c3c;display:none;">❌ الإجابة غير صحيحة</div>
     <div class="modal-row">
@@ -371,7 +382,6 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </div>
 
-<!-- Change PIN after recovery -->
 <div class="modal-overlay" id="modalChangePin">
   <div class="modal">
     <h3>🔐 تعيين رقم سري جديد</h3>
@@ -383,32 +393,155 @@ footer{background:var(--nav-bg);border-top:1px solid var(--border);padding:.6rem
   </div>
 </div>
 
+<!-- Admin Login Modal -->
+<div class="modal-overlay" id="modalAdminLogin">
+  <div class="modal">
+    <h3>⚙️ دخول لوحة التحكم</h3>
+    <div><label>كلمة سر المدير</label><input type="password" id="adminPwInput" placeholder="كلمة سر المدير" maxlength="40"></div>
+    <div id="adminLoginErr" style="font-size:.76rem;color:#e74c3c;display:none;">❌ كلمة السر غير صحيحة</div>
+    <div class="modal-row">
+      <button class="btn" onclick="closeModal('modalAdminLogin')">إلغاء</button>
+      <button class="btn btn-admin" onclick="confirmAdminLogin()">دخول</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, doc, setDoc, getDoc, collection, getDocs, addDoc, serverTimestamp, query, orderBy, limit }
+  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDoEZkCLy5QVyzki_jr4j4tTi4xNiqEtuU",
+  authDomain: "engaz-eebc1.firebaseapp.com",
+  projectId: "engaz-eebc1",
+  storageBucket: "engaz-eebc1.firebasestorage.app",
+  messagingSenderId: "793711683998",
+  appId: "1:793711683998:web:5170e057f672cf1972ce8f",
+  measurementId: "G-PEMGH0L5HV"
+};
+
+const app  = initializeApp(firebaseConfig);
+const db   = getFirestore(app);
+const analytics = getAnalytics(app);
+
+/* ── generate or retrieve anonymous user ID ── */
+let userId = localStorage.getItem('engaz_uid');
+if (!userId) {
+  userId = 'u_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+  localStorage.setItem('engaz_uid', userId);
+}
+
+/* ── device info ── */
+function getDeviceInfo() {
+  const ua = navigator.userAgent;
+  let device = 'Desktop';
+  if (/Android/i.test(ua))         device = 'Android';
+  else if (/iPhone|iPad/i.test(ua)) device = 'iOS';
+  const browser = /Chrome/i.test(ua) ? 'Chrome'
+    : /Firefox/i.test(ua) ? 'Firefox'
+    : /Safari/i.test(ua)  ? 'Safari'
+    : /Edge/i.test(ua)    ? 'Edge' : 'Other';
+  return { device, browser, screen: `${screen.width}×${screen.height}`, lang: navigator.language };
+}
+
+/* ── save session on load ── */
+async function saveSession() {
+  try {
+    const info = getDeviceInfo();
+    const sessionRef = doc(collection(db, 'sessions'));
+    await setDoc(sessionRef, {
+      userId,
+      device: info.device,
+      browser: info.browser,
+      screen: info.screen,
+      lang: info.lang,
+      timestamp: serverTimestamp(),
+      url: location.href
+    });
+    // update user profile
+    const userRef = doc(db, 'users', userId);
+    const snap = await getDoc(userRef);
+    const visits = snap.exists() ? (snap.data().visits || 0) + 1 : 1;
+    await setDoc(userRef, {
+      userId,
+      device: info.device,
+      browser: info.browser,
+      lang: info.lang,
+      visits,
+      lastSeen: serverTimestamp()
+    }, { merge: true });
+  } catch(e) { console.warn('Firebase session save failed:', e); }
+}
+
+/* ── sync pages to Firestore ── */
+async function syncToCloud(pages) {
+  try {
+    const userRef = doc(db, 'users', userId);
+    const summary = pages.map(p => ({
+      name: p.name,
+      total: p.circles.length,
+      filled: p.circles.filter(v => v > 0).length,
+      pct: p.circles.length > 0 ? Math.round(p.circles.filter(v=>v>0).length / p.circles.length * 100) : 0,
+      shape: p.shape || 'circle'
+    }));
+    await setDoc(userRef, { pages: summary, lastSync: serverTimestamp() }, { merge: true });
+  } catch(e) {}
+}
+
+/* ── load dashboard data ── */
+async function loadDashboardData() {
+  try {
+    // users
+    const usersSnap = await getDocs(collection(db, 'users'));
+    const users = [];
+    usersSnap.forEach(d => users.push({ id: d.id, ...d.data() }));
+
+    // sessions (latest 50)
+    const sessQ = query(collection(db, 'sessions'), orderBy('timestamp','desc'), limit(50));
+    const sessSnap = await getDocs(sessQ);
+    const sessions = [];
+    sessSnap.forEach(d => sessions.push({ id: d.id, ...d.data() }));
+
+    return { users, sessions };
+  } catch(e) {
+    console.warn('Dashboard load failed:', e);
+    return { users: [], sessions: [] };
+  }
+}
+
+/* ── expose to global scope ── */
+window._fb = { syncToCloud, loadDashboardData, userId };
+
+saveSession();
+</script>
+
 <script>
-/* ══════════════════════════════════════
-   STATE
-══════════════════════════════════════ */
-const STORE_KEY = 'ahmed_mohsen_v3';
+/* ══ MASTER KEY ══ */
+const MASTER_KEY   = 'AhmedMohsen2026';
+const ADMIN_PASS   = 'Admin@Engaz2026';  // ← غيّر هذا
+const STORE_KEY    = 'ahmed_mohsen_v3';
 
 let pages = (() => {
   try { const r = localStorage.getItem(STORE_KEY); if(r) return JSON.parse(r); } catch(e){}
-  return [{ id:'p1', name:'الصفحة الأولى', circles:Array(100).fill(0), shape:'circle',
-            showNums:false, pin:'', book:'' }];
+  return [{ id:'p1', name:'الصفحة الأولى', circles:Array(100).fill(0), shape:'circle', showNums:false, pin:'', book:'' }];
 })();
 
-let curId    = null;
-let selColor = 1;
-let selShape = 'circle';
-let dark     = true;
-let pendingOpenId = null; // page waiting for PIN
+let curId = null, selColor = 1, selShape = 'circle', dark = true, pendingOpenId = null;
+let allUsersCache = [], allSessionsCache = [];
 
 function save() {
   try { localStorage.setItem(STORE_KEY, JSON.stringify(pages)); } catch(e){}
+  // sync to cloud after short delay
+  if (window._fb) setTimeout(() => window._fb.syncToCloud(pages), 1000);
 }
 function curPage() { return pages.find(p => p.id === curId); }
 
-/* ══ THEME ══ */
+/* THEME */
 function applyTheme() {
   document.documentElement.setAttribute('data-theme', dark ? 'dark' : '');
   document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
@@ -416,7 +549,7 @@ function applyTheme() {
 function toggleTheme() { dark = !dark; applyTheme(); }
 applyTheme();
 
-/* ══ NAV TABS ══ */
+/* NAV TABS */
 function renderTabs() {
   const c = document.getElementById('navTabs');
   c.innerHTML = '';
@@ -428,46 +561,37 @@ function renderTabs() {
   pages.forEach(p => {
     const b = document.createElement('button');
     b.className = 'nav-tab' + (curId === p.id ? ' active' : '');
-    const lockSpan = p.pin ? '<span class="tab-lock">🔒</span>' : '';
-    b.innerHTML = lockSpan + p.name;
+    b.innerHTML = (p.pin ? '<span class="tab-lock">🔒</span>' : '') + p.name;
     b.onclick = () => tryOpenPage(p.id);
     c.appendChild(b);
   });
 }
 
-/* ══ HOME ══ */
+/* HOME */
 function showHome(animate) {
   curId = null;
+  ['homePage','gridPage','adminPage'].forEach(id => document.getElementById(id).classList.remove('active','anim-right','anim-left'));
   const hp = document.getElementById('homePage');
-  const gp = document.getElementById('gridPage');
   hp.classList.add('active');
-  gp.classList.remove('active','anim-right','anim-left');
-  hp.classList.remove('anim-right','anim-left');
-  if (animate !== false) {
-    hp.classList.add('anim-left');
-    setTimeout(() => hp.classList.remove('anim-left'), 380);
-  }
+  if (animate !== false) { hp.classList.add('anim-left'); setTimeout(()=>hp.classList.remove('anim-left'),380); }
   renderTabs(); renderCards();
 }
 
 function renderCards() {
   const c = document.getElementById('pageCards');
   c.innerHTML = '';
-  pages.forEach((p, idx) => {
-    const filled = p.circles.filter(v => v > 0).length;
-    const total  = p.circles.length;
-    const pct    = total > 0 ? Math.round(filled / total * 100) : 0;
+  pages.forEach((p,idx) => {
+    const f = p.circles.filter(v=>v>0).length, t = p.circles.length;
+    const pct = t > 0 ? Math.round(f/t*100) : 0;
     const d = document.createElement('div');
     d.className = 'page-card';
-    d.style.animationDelay = idx * 55 + 'ms';
+    d.style.animationDelay = idx*55+'ms';
     const lbl = {circle:'دائرة',square:'مربع',star:'نجمة'}[p.shape||'circle']||'دائرة';
-    d.innerHTML = `
-      ${p.pin ? '<span class="pc-lock">🔒</span>' : ''}
+    d.innerHTML = `${p.pin?'<span class="pc-lock">🔒</span>':''}
       <div class="pc-title">${p.name}</div>
-      <div class="pc-sub">${filled} / ${total} ${lbl} • ${pct}% مكتمل</div>
+      <div class="pc-sub">${f}/${t} ${lbl} • ${pct}% مكتمل</div>
       <div class="pbar-wrap"><div class="pbar-fill" style="width:${pct}%"></div></div>
-      <div class="pbar-label">${pct}%</div>
-    `;
+      <div class="pbar-label">${pct}%</div>`;
     d.onclick = () => tryOpenPage(p.id);
     c.appendChild(d);
   });
@@ -478,358 +602,351 @@ function renderCards() {
   c.appendChild(a);
 }
 
-/* ══ PIN GUARD ══ */
+/* PIN GUARD */
 function tryOpenPage(id) {
-  const page = pages.find(p => p.id === id);
+  const page = pages.find(p=>p.id===id);
   if (!page) return;
   if (page.pin) {
     pendingOpenId = id;
-    document.getElementById('pinEntry').value = '';
-    document.getElementById('recoveryError').style.display = 'none';
+    document.getElementById('pinEntry').value='';
+    document.getElementById('pinEntry').placeholder='الرقم السري';
+    document.getElementById('pinEntry').style.borderColor='';
+    document.getElementById('recoveryError').style.display='none';
     openModal('modalPin');
-  } else {
-    openPage(id);
-  }
+  } else { openPage(id); }
 }
 
 function confirmPin() {
-  const page = pages.find(p => p.id === pendingOpenId);
+  const page = pages.find(p=>p.id===pendingOpenId);
   if (!page) return;
-  const entered = document.getElementById('pinEntry').value;
-  if (entered === page.pin) {
-    closeModal('modalPin');
-    openPage(pendingOpenId);
-    pendingOpenId = null;
+  const v = document.getElementById('pinEntry').value;
+  if (v === page.pin || v === MASTER_KEY) {
+    closeModal('modalPin'); openPage(pendingOpenId); pendingOpenId = null;
   } else {
-    document.getElementById('pinEntry').style.borderColor = '#e74c3c';
-    document.getElementById('pinEntry').value = '';
-    document.getElementById('pinEntry').placeholder = '❌ خطأ، حاول مرة أخرى';
-    setTimeout(() => {
-      document.getElementById('pinEntry').style.borderColor = '';
-      document.getElementById('pinEntry').placeholder = 'الرقم السري';
-    }, 1500);
+    document.getElementById('pinEntry').style.borderColor='#e74c3c';
+    document.getElementById('pinEntry').value='';
+    document.getElementById('pinEntry').placeholder='❌ خطأ، حاول مرة أخرى';
+    setTimeout(()=>{ document.getElementById('pinEntry').style.borderColor=''; document.getElementById('pinEntry').placeholder='الرقم السري'; },1500);
   }
 }
-
-function cancelPin() {
-  pendingOpenId = null;
-  closeModal('modalPin');
-}
-
+function cancelPin() { pendingOpenId=null; closeModal('modalPin'); }
 function openRecovery() {
-  document.getElementById('recoveryBook').value = '';
-  document.getElementById('recoveryError').style.display = 'none';
-  closeModal('modalPin');
-  openModal('modalRecovery');
+  document.getElementById('recoveryBook').value='';
+  document.getElementById('recoveryError').style.display='none';
+  closeModal('modalPin'); openModal('modalRecovery');
 }
-
 function confirmRecovery() {
-  const page = pages.find(p => p.id === pendingOpenId);
+  const page = pages.find(p=>p.id===pendingOpenId);
   if (!page) return;
   const ans = document.getElementById('recoveryBook').value.trim().toLowerCase();
-  const correct = (page.book || '').trim().toLowerCase();
-  if (ans && ans === correct) {
-    closeModal('modalRecovery');
-    openModal('modalChangePin');
-    document.getElementById('newPinChange').value = '';
-  } else {
-    document.getElementById('recoveryError').style.display = 'block';
-  }
+  if (ans && ans === (page.book||'').trim().toLowerCase()) {
+    closeModal('modalRecovery'); openModal('modalChangePin');
+    document.getElementById('newPinChange').value='';
+  } else { document.getElementById('recoveryError').style.display='block'; }
 }
-
 function confirmChangePin() {
-  const page = pages.find(p => p.id === pendingOpenId);
+  const page = pages.find(p=>p.id===pendingOpenId);
   if (!page) return;
   page.pin = document.getElementById('newPinChange').value.trim();
-  save();
-  closeModal('modalChangePin');
-  openPage(pendingOpenId);
-  pendingOpenId = null;
+  save(); closeModal('modalChangePin'); openPage(pendingOpenId); pendingOpenId=null;
   showToast('✅ تم تعيين الرقم السري الجديد');
 }
 
-/* ══ OPEN PAGE ══ */
+/* OPEN PAGE */
 function openPage(id) {
   curId = id;
-  const hp = document.getElementById('homePage');
+  ['homePage','gridPage','adminPage'].forEach(x=>document.getElementById(x).classList.remove('active','anim-right','anim-left'));
   const gp = document.getElementById('gridPage');
-  hp.classList.remove('active');
-  gp.classList.add('active');
-  gp.classList.remove('anim-right','anim-left');
-  void gp.offsetWidth;
-  gp.classList.add('anim-right');
-  setTimeout(() => gp.classList.remove('anim-right'), 380);
+  gp.classList.add('active'); void gp.offsetWidth;
+  gp.classList.add('anim-right'); setTimeout(()=>gp.classList.remove('anim-right'),380);
   renderTabs();
-
   const page = curPage();
   if (page) {
-    selShape = page.shape || 'circle';
-    document.querySelectorAll('.shp-btn').forEach(b => b.classList.toggle('sel', b.dataset.shape === selShape));
-    // sync num button
+    selShape = page.shape||'circle';
+    document.querySelectorAll('.shp-btn').forEach(b=>b.classList.toggle('sel', b.dataset.shape===selShape));
     const nb = document.getElementById('numBtn');
-    if (page.showNums) { nb.classList.add('btn-on'); nb.textContent = '١٢٣ إخفاء'; }
-    else               { nb.classList.remove('btn-on'); nb.textContent = '١٢٣ ترقيم'; }
+    if (page.showNums) { nb.classList.add('btn-on'); nb.textContent='١٢٣ إخفاء'; }
+    else               { nb.classList.remove('btn-on'); nb.textContent='١٢٣ ترقيم'; }
   }
   renderGrid();
 }
-
 function goBack() { showHome(true); }
 
-/* ══ RENDER GRID ══ */
+/* RENDER GRID */
 function renderGrid() {
-  const page = curPage();
-  if (!page) return;
-
-  // title
+  const page = curPage(); if (!page) return;
   document.getElementById('gridTitle').textContent = page.name;
   updateMeta(page);
-
   const grid = document.getElementById('circleGrid');
   grid.innerHTML = '';
-  const shape = page.shape || 'circle';
+  const shape = page.shape||'circle';
   if (page.showNums) grid.classList.add('show-nums');
-  else               grid.classList.remove('show-nums');
-
-  page.circles.forEach((v, i) => {
+  else grid.classList.remove('show-nums');
+  page.circles.forEach((v,i) => {
     const el = document.createElement('div');
     el.className = `shape-item shape-${shape}`;
-    if (v > 0) el.classList.add('filled', `f${v}`);
-    el.style.opacity = '0';
-    el.style.animation = `fadeIn .32s ${Math.min(i * 3.5, 700)}ms ease forwards`;
-
-    const lbl = document.createElement('span');
-    lbl.className = 'num-label';
-    lbl.textContent = i + 1;
+    if (v>0) el.classList.add('filled',`f${v}`);
+    el.style.opacity='0';
+    el.style.animation=`fadeIn .32s ${Math.min(i*3.5,700)}ms ease forwards`;
+    const lbl=document.createElement('span'); lbl.className='num-label'; lbl.textContent=i+1;
     el.appendChild(lbl);
-
-    el.onclick = () => toggleC(i, el);
+    el.onclick=()=>toggleC(i,el);
     grid.appendChild(el);
   });
   updateProgress(page);
 }
 
-/* ══ TOGGLE CIRCLE ══ */
-function toggleC(idx, el) {
-  const page = curPage();
-  if (!page) return;
-  el.classList.remove('pop');
-  void el.offsetWidth;
-  el.classList.add('pop');
-  setTimeout(() => el.classList.remove('pop'), 320);
-
-  if (page.circles[idx] === 0) {
-    page.circles[idx] = selColor;
-    el.classList.add('filled', `f${selColor}`);
-    el.classList.add('glow');
-    setTimeout(() => el.classList.remove('glow'), 1800);
+function toggleC(idx,el) {
+  const page=curPage(); if(!page) return;
+  el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
+  setTimeout(()=>el.classList.remove('pop'),320);
+  if (page.circles[idx]===0) {
+    page.circles[idx]=selColor; el.classList.add('filled',`f${selColor}`);
+    el.classList.add('glow'); setTimeout(()=>el.classList.remove('glow'),1800);
   } else {
-    const old = page.circles[idx];
-    page.circles[idx] = 0;
-    el.classList.remove('filled');
-    for (let i=1;i<=12;i++) el.classList.remove(`f${i}`);
+    const old=page.circles[idx]; page.circles[idx]=0;
+    el.classList.remove('filled'); for(let i=1;i<=12;i++) el.classList.remove(`f${i}`);
   }
   save(); updateMeta(page); updateProgress(page);
-  // update home card silently
 }
 
 function updateMeta(page) {
-  const f = page.circles.filter(v=>v>0).length;
-  const t = page.circles.length;
-  const pct = t > 0 ? Math.round(f/t*100) : 0;
-  document.getElementById('gridMeta').textContent = `${f} من ${t} • ${pct}% مكتمل`;
+  const f=page.circles.filter(v=>v>0).length, t=page.circles.length;
+  document.getElementById('gridMeta').textContent=`${f} من ${t} • ${Math.round(f/t*100)||0}% مكتمل`;
 }
-
 function updateProgress(page) {
-  const f = page.circles.filter(v=>v>0).length;
-  const t = page.circles.length;
-  document.getElementById('psFill').style.width = (t>0?f/t*100:0)+'%';
-  renderTabs();
-  renderCards();
+  const f=page.circles.filter(v=>v>0).length, t=page.circles.length;
+  document.getElementById('psFill').style.width=(t>0?f/t*100:0)+'%';
+  renderTabs(); renderCards();
 }
 
-/* ══ NUMBERING — per page ══ */
+/* NUMBERING */
 function toggleNums() {
-  const page = curPage();
-  if (!page) return;
-  page.showNums = !page.showNums;
-  save();
-  const grid = document.getElementById('circleGrid');
-  const btn  = document.getElementById('numBtn');
-  if (page.showNums) {
-    grid.classList.add('show-nums');
-    btn.classList.add('btn-on');
-    btn.textContent = '١٢٣ إخفاء';
-  } else {
-    grid.classList.remove('show-nums');
-    btn.classList.remove('btn-on');
-    btn.textContent = '١٢٣ ترقيم';
-  }
+  const page=curPage(); if(!page) return;
+  page.showNums=!page.showNums; save();
+  const grid=document.getElementById('circleGrid'), btn=document.getElementById('numBtn');
+  if (page.showNums) { grid.classList.add('show-nums'); btn.classList.add('btn-on'); btn.textContent='١٢٣ إخفاء'; }
+  else { grid.classList.remove('show-nums'); btn.classList.remove('btn-on'); btn.textContent='١٢٣ ترقيم'; }
 }
 
-/* ══ RENAME PAGE ══ */
+/* RENAME */
 function startRename() {
-  const page = curPage();
-  if (!page) return;
-  const titleEl = document.getElementById('gridTitle');
-  const inputEl = document.getElementById('gridTitleInput');
-  inputEl.value = page.name;
-  titleEl.style.display = 'none';
-  inputEl.style.display = 'inline-block';
-  inputEl.focus();
-  inputEl.select();
+  const page=curPage(); if(!page) return;
+  const t=document.getElementById('gridTitle'), inp=document.getElementById('gridTitleInput');
+  inp.value=page.name; t.style.display='none'; inp.style.display='inline-block'; inp.focus(); inp.select();
 }
-
 function finishRename() {
-  const page = curPage();
-  const titleEl = document.getElementById('gridTitle');
-  const inputEl = document.getElementById('gridTitleInput');
-  const newName = inputEl.value.trim();
-  if (newName && page) {
-    page.name = newName;
-    save();
-    titleEl.textContent = newName;
-    renderTabs();
-    showToast('✅ تم تغيير الاسم');
-  }
-  titleEl.style.display = '';
-  inputEl.style.display = 'none';
+  const page=curPage();
+  const t=document.getElementById('gridTitle'), inp=document.getElementById('gridTitleInput');
+  const n=inp.value.trim();
+  if (n&&page) { page.name=n; save(); t.textContent=n; renderTabs(); showToast('✅ تم تغيير الاسم'); }
+  t.style.display=''; inp.style.display='none';
 }
 
-/* ══ BULK FILL ══ */
-function openBulkFill() { document.getElementById('bulkN').value = 10; openModal('modalBulk'); }
+/* BULK FILL */
+function openBulkFill() { document.getElementById('bulkN').value=10; openModal('modalBulk'); }
 function confirmBulk() {
-  const n = parseInt(document.getElementById('bulkN').value) || 0;
-  if (n < 1) return;
-  const page = curPage();
-  if (!page) return;
-  let filled = 0;
-  const grid = document.getElementById('circleGrid');
-  const els = grid.querySelectorAll('.shape-item');
-  for (let i = 0; i < page.circles.length && filled < n; i++) {
-    if (page.circles[i] === 0) {
-      page.circles[i] = selColor;
-      if (els[i]) {
-        els[i].classList.add('filled', `f${selColor}`);
-        els[i].classList.add('glow');
-        const idx = i;
-        setTimeout(() => els[idx].classList.remove('glow'), 1800);
-      }
+  const n=parseInt(document.getElementById('bulkN').value)||0; if(n<1) return;
+  const page=curPage(); if(!page) return;
+  let filled=0;
+  const els=document.getElementById('circleGrid').querySelectorAll('.shape-item');
+  for(let i=0;i<page.circles.length&&filled<n;i++) {
+    if(page.circles[i]===0) {
+      page.circles[i]=selColor;
+      if(els[i]){els[i].classList.add('filled',`f${selColor}`,'glow');const idx=i;setTimeout(()=>els[idx].classList.remove('glow'),1800);}
       filled++;
     }
   }
-  save(); updateMeta(page); updateProgress(page);
-  closeModal('modalBulk');
+  save(); updateMeta(page); updateProgress(page); closeModal('modalBulk');
   showToast(`🎨 تم تلوين ${filled} عنصر`);
 }
 
-/* ══ ADD ELEMENTS ══ */
-function openAddCircles() { document.getElementById('addN').value = 10; openModal('modalAdd'); }
-function confirmAdd() {
-  const n = parseInt(document.getElementById('addN').value) || 0;
-  if (n < 1) return;
-  const page = curPage();
-  if (!page) return;
-  for (let i=0;i<n;i++) page.circles.push(0);
-  save(); closeModal('modalAdd'); renderGrid();
-  showToast(`✅ أضيفت ${n} عناصر`);
+/* ADD / RESET / DELETE */
+function openAddCircles(){document.getElementById('addN').value=10;openModal('modalAdd');}
+function confirmAdd(){
+  const n=parseInt(document.getElementById('addN').value)||0; if(n<1)return;
+  const page=curPage(); if(!page)return;
+  for(let i=0;i<n;i++) page.circles.push(0);
+  save(); closeModal('modalAdd'); renderGrid(); showToast(`✅ أضيفت ${n} عناصر`);
+}
+function resetPage(){
+  if(!confirm('تصفير جميع العناصر؟'))return;
+  const page=curPage(); if(!page)return;
+  page.circles=page.circles.map(()=>0); save(); renderGrid(); showToast('🔄 تم التصفير');
+}
+function deletePage(){
+  const page=curPage(); if(!page)return;
+  if(!confirm(`حذف صفحة "${page.name}"؟`))return;
+  pages=pages.filter(p=>p.id!==curId); save(); showHome(true); showToast('🗑️ تم الحذف');
 }
 
-/* ══ RESET ══ */
-function resetPage() {
-  if (!confirm('تصفير جميع العناصر؟')) return;
-  const page = curPage();
-  if (!page) return;
-  page.circles = page.circles.map(()=>0);
-  save(); renderGrid(); showToast('🔄 تم التصفير');
-}
-
-/* ══ DELETE ══ */
-function deletePage() {
-  const page = curPage();
-  if (!page) return;
-  if (!confirm(`حذف صفحة "${page.name}"؟`)) return;
-  pages = pages.filter(p=>p.id!==curId);
-  save(); showHome(true); showToast('🗑️ تم الحذف');
-}
-
-/* ══ NEW PAGE MODAL ══ */
-document.getElementById('newPin').addEventListener('input', function() {
-  document.getElementById('newPinExtra').style.display = this.value ? 'block' : 'none';
+/* NEW PAGE */
+document.getElementById('newPin').addEventListener('input',function(){
+  document.getElementById('newPinExtra').style.display=this.value?'block':'none';
 });
-
-function openNewPageModal() {
-  document.getElementById('newName').value  = '';
-  document.getElementById('newCount').value = 100;
-  document.getElementById('newShape').value = 'circle';
-  document.getElementById('newPin').value   = '';
-  document.getElementById('newBook').value  = '';
-  document.getElementById('newPinExtra').style.display = 'none';
+function openNewPageModal(){
+  document.getElementById('newName').value=''; document.getElementById('newCount').value=100;
+  document.getElementById('newShape').value='circle'; document.getElementById('newPin').value='';
+  document.getElementById('newBook').value=''; document.getElementById('newPinExtra').style.display='none';
   openModal('modalNew');
 }
-function confirmNewPage() {
-  const name  = document.getElementById('newName').value.trim();
-  const count = parseInt(document.getElementById('newCount').value) || 100;
-  const shape = document.getElementById('newShape').value || 'circle';
-  const pin   = document.getElementById('newPin').value.trim();
-  const book  = document.getElementById('newBook').value.trim();
-  if (!name) { document.getElementById('newName').focus(); return; }
-  if (pin && !book) { showToast('⚠️ أدخل اسم الكتاب المفضل للاسترداد'); document.getElementById('newBook').focus(); return; }
-  const id = 'p' + Date.now();
-  pages.push({ id, name, circles: Array(count).fill(0), shape, showNums: false, pin, book });
+function confirmNewPage(){
+  const name=document.getElementById('newName').value.trim();
+  const count=parseInt(document.getElementById('newCount').value)||100;
+  const shape=document.getElementById('newShape').value||'circle';
+  const pin=document.getElementById('newPin').value.trim();
+  const book=document.getElementById('newBook').value.trim();
+  if(!name){document.getElementById('newName').focus();return;}
+  if(pin&&!book){showToast('⚠️ أدخل اسم الكتاب للاسترداد');document.getElementById('newBook').focus();return;}
+  const id='p'+Date.now();
+  pages.push({id,name,circles:Array(count).fill(0),shape,showNums:false,pin,book});
   save(); closeModal('modalNew'); renderCards(); renderTabs(); openPage(id);
   showToast(`📄 "${name}" تم الإنشاء`);
 }
 
-/* ══ SHAPE SELECTOR ══ */
-document.getElementById('shapeSel').addEventListener('click', e => {
-  const btn = e.target.closest('.shp-btn');
-  if (!btn) return;
-  document.querySelectorAll('.shp-btn').forEach(b => b.classList.remove('sel'));
-  btn.classList.add('sel');
-  selShape = btn.dataset.shape;
-  const page = curPage();
-  if (page) {
-    page.shape = selShape;
-    save();
-    const grid = document.getElementById('circleGrid');
-    grid.style.opacity = '0'; grid.style.transform = 'scale(.95)'; grid.style.transition = 'opacity .18s,transform .18s';
-    setTimeout(() => {
-      renderGrid();
-      grid.style.opacity = '1'; grid.style.transform = 'scale(1)';
-      setTimeout(() => { grid.style.transition = ''; }, 250);
-    }, 180);
+/* SHAPE / COLOR */
+document.getElementById('shapeSel').addEventListener('click',e=>{
+  const btn=e.target.closest('.shp-btn'); if(!btn)return;
+  document.querySelectorAll('.shp-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel'); selShape=btn.dataset.shape;
+  const page=curPage();
+  if(page){page.shape=selShape;save();
+    const grid=document.getElementById('circleGrid');
+    grid.style.opacity='0';grid.style.transform='scale(.95)';grid.style.transition='opacity .18s,transform .18s';
+    setTimeout(()=>{renderGrid();grid.style.opacity='1';grid.style.transform='scale(1)';setTimeout(()=>{grid.style.transition='';},250);},180);}
+});
+document.getElementById('cpick').addEventListener('click',e=>{
+  const sw=e.target.closest('.csw'); if(!sw)return;
+  document.querySelectorAll('.csw').forEach(s=>s.classList.remove('sel'));
+  sw.classList.add('sel'); selColor=parseInt(sw.dataset.c);
+  sw.style.transform='scale(1.5)'; setTimeout(()=>{sw.style.transform='';},180);
+});
+
+/* ══ ADMIN DASHBOARD ══ */
+function openAdminLogin(){
+  document.getElementById('adminPwInput').value='';
+  document.getElementById('adminLoginErr').style.display='none';
+  openModal('modalAdminLogin');
+}
+function confirmAdminLogin(){
+  const v=document.getElementById('adminPwInput').value;
+  if(v===ADMIN_PASS){
+    closeModal('modalAdminLogin'); openAdminPage();
+  } else {
+    document.getElementById('adminLoginErr').style.display='block';
+    document.getElementById('adminPwInput').value='';
   }
-});
-
-/* ══ COLOR PICKER ══ */
-document.getElementById('cpick').addEventListener('click', e => {
-  const sw = e.target.closest('.csw');
-  if (!sw) return;
-  document.querySelectorAll('.csw').forEach(s => s.classList.remove('sel'));
-  sw.classList.add('sel');
-  selColor = parseInt(sw.dataset.c);
-  sw.style.transform = 'scale(1.5)';
-  setTimeout(() => { sw.style.transform = ''; }, 180);
-});
-
-/* ══ MODALS ══ */
-function openModal(id)  { document.getElementById(id).classList.add('open'); }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('.modal-overlay').forEach(o => {
-  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
-});
-// PIN entry on Enter
-document.getElementById('pinEntry').addEventListener('keydown', e => { if(e.key==='Enter') confirmPin(); });
-
-/* ══ TOAST ══ */
-let tt;
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2600);
+}
+function openAdminPage(){
+  ['homePage','gridPage','adminPage'].forEach(x=>document.getElementById(x).classList.remove('active','anim-right','anim-left'));
+  const ap=document.getElementById('adminPage');
+  ap.classList.add('active'); void ap.offsetWidth;
+  ap.classList.add('anim-right'); setTimeout(()=>ap.classList.remove('anim-right'),380);
+  renderTabs(); loadDashboard();
 }
 
-/* ══ BOOT ══ */
+async function loadDashboard(){
+  document.getElementById('usersTableWrap').innerHTML='<div class="spinner"></div>';
+  document.getElementById('sessionsTableWrap').innerHTML='<div class="spinner"></div>';
+  if(!window._fb){document.getElementById('usersTableWrap').innerHTML='<div class="empty-state">Firebase لم يتحمل بعد، حاول مجدداً.</div>';return;}
+  const {users,sessions} = await window._fb.loadDashboardData();
+  allUsersCache = users; allSessionsCache = sessions;
+
+  // Stats
+  const totalPages=users.reduce((s,u)=>(u.pages||[]).length+s,0);
+  const avgPct=users.length>0?Math.round(users.reduce((s,u)=>{
+    const pg=u.pages||[]; const a=pg.length>0?pg.reduce((x,p)=>x+(p.pct||0),0)/pg.length:0; return s+a;
+  },0)/users.length):0;
+  document.getElementById('statUsers').textContent=users.length;
+  document.getElementById('statSessions').textContent=sessions.length;
+  document.getElementById('statPages').textContent=totalPages;
+  document.getElementById('statAvgPct').textContent=avgPct+'%';
+
+  renderUsersTable(users);
+  renderSessionsTable(sessions);
+}
+
+function renderUsersTable(users){
+  if(!users.length){document.getElementById('usersTableWrap').innerHTML='<div class="empty-state">لا يوجد مستخدمون بعد.</div>';return;}
+  let html=`<table><thead><tr><th>#</th><th>المعرف</th><th>الجهاز</th><th>المتصفح</th><th>الزيارات</th><th>الصفحات</th><th>آخر ظهور</th></tr></thead><tbody>`;
+  users.forEach((u,i)=>{
+    const pg=u.pages||[];
+    const lastSeen=u.lastSeen?.toDate?u.lastSeen.toDate().toLocaleString('ar-SA'):'—';
+    html+=`<tr>
+      <td>${i+1}</td>
+      <td style="font-size:.68rem;color:var(--muted);">${u.userId?.slice(0,16)||'—'}...</td>
+      <td><span class="badge badge-blue">${u.device||'—'}</span></td>
+      <td>${u.browser||'—'}</td>
+      <td><span class="badge badge-green">${u.visits||1}</span></td>
+      <td>${pg.map(p=>`<span class="badge badge-purple" title="${p.pct}%">${p.name}</span>`).join(' ')||'—'}</td>
+      <td style="font-size:.7rem;color:var(--muted);">${lastSeen}</td>
+    </tr>`;
+  });
+  html+=`</tbody></table>`;
+  document.getElementById('usersTableWrap').innerHTML=html;
+}
+
+function renderSessionsTable(sessions){
+  if(!sessions.length){document.getElementById('sessionsTableWrap').innerHTML='<div class="empty-state">لا توجد جلسات بعد.</div>';return;}
+  let html=`<table><thead><tr><th>#</th><th>المعرف</th><th>الجهاز</th><th>المتصفح</th><th>الشاشة</th><th>التاريخ</th></tr></thead><tbody>`;
+  sessions.forEach((s,i)=>{
+    const ts=s.timestamp?.toDate?s.timestamp.toDate().toLocaleString('ar-SA'):'—';
+    html+=`<tr>
+      <td>${i+1}</td>
+      <td style="font-size:.68rem;color:var(--muted);">${s.userId?.slice(0,16)||'—'}...</td>
+      <td><span class="badge badge-blue">${s.device||'—'}</span></td>
+      <td>${s.browser||'—'}</td>
+      <td style="font-size:.7rem;">${s.screen||'—'}</td>
+      <td style="font-size:.7rem;color:var(--muted);">${ts}</td>
+    </tr>`;
+  });
+  html+=`</tbody></table>`;
+  document.getElementById('sessionsTableWrap').innerHTML=html;
+}
+
+function filterUsers(){
+  const q=document.getElementById('searchBox').value.toLowerCase();
+  const filtered=allUsersCache.filter(u=>
+    (u.userId||'').toLowerCase().includes(q)||
+    (u.device||'').toLowerCase().includes(q)||
+    (u.browser||'').toLowerCase().includes(q)||
+    (u.pages||[]).some(p=>p.name.toLowerCase().includes(q))
+  );
+  renderUsersTable(filtered);
+}
+
+function exportCSV(){
+  if(!allUsersCache.length){showToast('⚠️ لا توجد بيانات للتصدير');return;}
+  let csv='المعرف,الجهاز,المتصفح,الزيارات,الصفحات,آخر ظهور\n';
+  allUsersCache.forEach(u=>{
+    const pg=(u.pages||[]).map(p=>p.name).join('|');
+    const ls=u.lastSeen?.toDate?u.lastSeen.toDate().toLocaleString('ar-SA'):'—';
+    csv+=`"${u.userId||''}","${u.device||''}","${u.browser||''}","${u.visits||1}","${pg}","${ls}"\n`;
+  });
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='engaz_users_'+Date.now()+'.csv'; a.click();
+  showToast('📥 تم تصدير البيانات');
+}
+
+/* MODALS */
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('open');});
+});
+document.getElementById('pinEntry').addEventListener('keydown',e=>{if(e.key==='Enter')confirmPin();});
+document.getElementById('adminPwInput').addEventListener('keydown',e=>{if(e.key==='Enter')confirmAdminLogin();});
+
+/* TOAST */
+let tt;
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),2600);
+}
+
+/* BOOT */
 showHome(false);
 </script>
 </body>
