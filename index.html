@@ -65,8 +65,8 @@ body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);
 @keyframes glow     {0%,100%{box-shadow:0 0 0 3px rgba(52,211,153,.6),0 0 18px rgba(52,211,153,.4)}
                      50%{box-shadow:0 0 0 5px rgba(52,211,153,.8),0 0 32px rgba(52,211,153,.6)}}
 @keyframes glowFill {0%{box-shadow:0 0 0 0px rgba(52,211,153,.0)}
-                     40%{box-shadow:0 0 0 6px rgba(52,211,153,.5),0 0 20px rgba(52,211,153,.3)}
-                     100%{box-shadow:0 0 0 2px rgba(52,211,153,.2)}}
+                     40%{box-shadow:0 0 0 4px rgba(52,211,153,.4)}
+                     100%{box-shadow:0 0 0 1px rgba(52,211,153,.1)}}
 @keyframes confettiDrop{0%{transform:translateY(0) rotate(0) scale(1);opacity:1}
                         100%{transform:translateY(-80px) rotate(540deg) scale(0);opacity:0}}
 @keyframes dropOpen {from{opacity:0;transform:translateY(-8px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
@@ -274,7 +274,7 @@ nav{background:var(--nav);border-bottom:1px solid var(--border);padding:0 1rem;h
 .si.f9{background:var(--f9)!important;}.si.f10{background:var(--f10)!important;}
 .si.f11{background:var(--f11)!important;}.si.f12{background:var(--f12)!important;}
 .si.fc{background:var(--custom-color,#ff6b6b)!important;}
-.si-glow{animation:glowFill .5s ease forwards,fillPop .3s cubic-bezier(.34,1.56,.64,1)!important;}
+.si-glow{animation:fillPop .22s cubic-bezier(.34,1.56,.64,1) forwards!important;}
 .nl{position:absolute;inset:0;display:none;align-items:center;justify-content:center;
   font-family:'Cairo',sans-serif;font-weight:900;pointer-events:none;z-index:4;
   font-size:clamp(7px,1.7vw,12px);color:rgba(100,100,100,.65);}
@@ -364,6 +364,73 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
 
 /* ══════════════ CONFETTI ══════════════ */
 .confetti{position:fixed;pointer-events:none;z-index:9998;border-radius:2px;animation:confettiDrop .9s ease forwards;}
+
+/* ══════════════ COUNTDOWN TIMER ══════════════ */
+#countdownWidget{
+  margin:0 1rem .4rem;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:.5rem .9rem;display:flex;align-items:center;gap:10px;
+  animation:fadeUp .25s ease;
+}
+.cd-display{
+  display:flex;align-items:center;gap:4px;flex:1;
+}
+.cd-seg{
+  display:flex;flex-direction:column;align-items:center;min-width:36px;
+}
+.cd-num{
+  font-size:1.25rem;font-weight:900;color:var(--accent);
+  background:var(--bg2);border-radius:8px;width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .12s ease,color .2s;
+  position:relative;overflow:hidden;
+}
+.cd-num.tick{animation:cdTick .15s ease;}
+@keyframes cdTick{0%{transform:scale(1.18)}100%{transform:scale(1)}}
+.cd-lbl{font-size:.52rem;color:var(--muted);margin-top:2px;font-weight:700;}
+.cd-sep{font-size:1.1rem;font-weight:900;color:var(--accent);margin-bottom:10px;opacity:.6;}
+.cd-ring{
+  position:relative;width:42px;height:42px;flex-shrink:0;
+}
+.cd-ring svg{position:absolute;inset:0;transform:rotate(-90deg);}
+.cd-ring-bg{fill:none;stroke:var(--border);stroke-width:3;}
+.cd-ring-fill{fill:none;stroke:var(--accent);stroke-width:3;stroke-linecap:round;
+  transition:stroke-dashoffset .8s ease,stroke .3s;
+}
+.cd-ring-icon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.cd-controls{display:flex;gap:5px;flex-shrink:0;}
+.cd-btn{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--border);
+  background:var(--bg2);font-size:.75rem;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all .15s;color:var(--text);}
+.cd-btn:hover{border-color:var(--accent);color:var(--accent);}
+.cd-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+.cd-done .cd-num{color:var(--warn)!important;}
+.cd-done .cd-ring-fill{stroke:var(--warn)!important;}
+@keyframes cdDone{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+/* ══════════════ PALETTE PICKER ══════════════ */
+.palette-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;}
+.pal-sw{width:100%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:transform .15s,border-color .15s;}
+.pal-sw:hover{transform:scale(1.2);}
+</style>
+.goal-bar-v2{
+  margin:0 1rem .3rem;
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:.45rem .85rem;display:flex;align-items:center;gap:8px;
+}
+.goal-bar-v2 .gv2-icon{font-size:.95rem;flex-shrink:0;}
+.goal-bar-v2 .gv2-info{flex:1;min-width:0;}
+.gv2-label{font-size:.68rem;color:var(--muted);font-weight:600;display:flex;justify-content:space-between;margin-bottom:3px;}
+.gv2-track{background:var(--bg2);border-radius:999px;height:6px;overflow:hidden;position:relative;}
+.gv2-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--purple));
+  transition:width .3s ease;position:relative;}
+.gv2-fill::after{content:'';position:absolute;top:0;right:0;width:6px;height:6px;
+  border-radius:50%;background:#fff;box-shadow:0 0 4px rgba(255,255,255,.6);
+  transform:translateX(50%);}
+.gv2-fill.done{background:linear-gradient(90deg,var(--accent),#34d399);}
+.gv2-actions{display:flex;gap:4px;flex-shrink:0;}
+.gv2-badge{font-size:.65rem;font-weight:900;background:var(--accent-light);color:var(--accent);
+  border-radius:999px;padding:1px 7px;white-space:nowrap;}
+.gv2-badge.done{background:rgba(52,211,153,.2);color:#059669;}
 
 /* ══════════════ PALETTE PICKER ══════════════ */
 .palette-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;}
@@ -464,7 +531,8 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
           <div class="qa-list">
             <div class="qa-item" onclick="closeDrop('qaWrap');toggleNums()"><span class="qa-item-icon">١٢٣</span><span id="numLabel">تفعيل الترقيم</span></div>
             <div class="qa-item" onclick="closeDrop('qaWrap');openBulkFill()"><span class="qa-item-icon">⚡</span><span>تلوين سريع</span></div>
-            <div class="qa-item" onclick="closeDrop('qaWrap');openGoalModal()"><span class="qa-item-icon">🎯</span><span>تعيين هدف يومي</span></div>
+            <div class="qa-item" onclick="closeDrop('qaWrap');openGoalSmart()"><span class="qa-item-icon">🎯</span><span id="goalToolLabel">تعيين هدف يومي</span></div>
+            <div class="qa-item" onclick="closeDrop('qaWrap');openCountdownSetup()"><span class="qa-item-icon">⏱</span><span>عداد تنازلي</span></div>
             <div class="qa-item" onclick="closeDrop('qaWrap');openAddCircles()"><span class="qa-item-icon">➕</span><span>إضافة عناصر</span></div>
             <div class="qa-item" onclick="closeDrop('qaWrap');openShareModal()"><span class="qa-item-icon">🔗</span><span>مشاركة الصفحة</span></div>
             <div class="qa-item" onclick="closeDrop('qaWrap');openExportModal()"><span class="qa-item-icon">📤</span><span>تصدير / استيراد</span></div>
@@ -551,11 +619,41 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
   </div>
 
   <div class="progress-strip"><div class="ps-fill" id="psFill"></div></div>
-  <div class="goal-bar" id="goalBar" style="display:none;">
-    <span style="color:var(--muted);flex-shrink:0;">🎯</span>
-    <div class="goal-wrap"><div class="goal-fill" id="goalFill"></div></div>
-    <span class="goal-pct" id="goalPct">0%</span>
-    <span id="goalCount" style="font-size:.68rem;color:var(--muted);"></span>
+
+  <!-- Countdown Widget (hidden by default) -->
+  <div id="countdownWidget" style="display:none;">
+    <div class="cd-ring" id="cdRing">
+      <svg viewBox="0 0 42 42"><circle class="cd-ring-bg" cx="21" cy="21" r="18"/><circle class="cd-ring-fill" id="cdArc" cx="21" cy="21" r="18" stroke-dasharray="113" stroke-dashoffset="0"/></svg>
+      <div class="cd-ring-icon" id="cdIcon">⏱</div>
+    </div>
+    <div class="cd-display" id="cdDisplay">
+      <div class="cd-seg"><div class="cd-num" id="cdH">00</div><div class="cd-lbl">ساعة</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-seg"><div class="cd-num" id="cdM">00</div><div class="cd-lbl">دقيقة</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-seg"><div class="cd-num" id="cdS">00</div><div class="cd-lbl">ثانية</div></div>
+    </div>
+    <div class="cd-controls">
+      <button class="cd-btn" id="cdPlayBtn" onclick="cdTogglePlay()" title="تشغيل/إيقاف">▶</button>
+      <button class="cd-btn" onclick="cdReset()" title="إعادة">↺</button>
+      <button class="cd-btn" onclick="cdClose()" title="إغلاق">✕</button>
+    </div>
+  </div>
+
+  <!-- Improved Goal Bar -->
+  <div class="goal-bar-v2" id="goalBarV2" style="display:none;">
+    <span class="gv2-icon">🎯</span>
+    <div class="gv2-info">
+      <div class="gv2-label">
+        <span id="gv2Title">الهدف اليومي</span>
+        <span id="gv2Count" class="gv2-badge">0/0</span>
+      </div>
+      <div class="gv2-track"><div class="gv2-fill" id="gv2Fill" style="width:0%"></div></div>
+    </div>
+    <div class="gv2-actions">
+      <button class="cd-btn" onclick="openGoalModal()" title="تعديل الهدف">✏️</button>
+      <button class="cd-btn" onclick="clearGoal()" title="إلغاء الهدف" style="font-size:.65rem;">✕</button>
+    </div>
   </div>
   <div class="grid-wrapper">
     <div class="circle-grid" id="circleGrid"></div>
@@ -718,12 +816,17 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
   </div>
 </div>
 
-<!-- Goal -->
+<!-- Goal Modal - Improved -->
 <div class="modal-overlay" id="modalGoal">
   <div class="modal"><h3>🎯 الهدف اليومي</h3>
-    <div><label>العدد المستهدف يومياً</label><input type="number" id="goalInput" value="20" min="0" max="9999"></div>
-    <div class="modal-hint">0 = بدون هدف. يظهر احتفال عند الوصول 🎉</div>
-    <div class="modal-row"><button class="btn" onclick="closeModal('modalGoal')">إلغاء</button><button class="btn btn-accent" onclick="confirmGoal()">حفظ</button></div>
+    <div id="goalCurrentStatus" style="display:none;background:var(--accent-light);border-radius:9px;padding:.6rem .85rem;margin-bottom:4px;font-size:.78rem;color:var(--accent);font-weight:700;"></div>
+    <div><label>العدد المستهدف يومياً</label><input type="number" id="goalInput" value="20" min="1" max="9999"></div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;" id="goalPresets"></div>
+    <div class="modal-hint" id="goalHint">حدد هدفاً يومياً وسيظهر شريط التقدم أسفل الصفحة 🎉</div>
+    <div class="modal-row">
+      <button class="btn btn-danger" id="goalClearBtn" onclick="clearGoal();closeModal('modalGoal')" style="display:none;">🗑 إلغاء الهدف</button>
+      <div style="display:flex;gap:6px;"><button class="btn" onclick="closeModal('modalGoal')">إلغاء</button><button class="btn btn-accent" onclick="confirmGoal()">حفظ</button></div>
+    </div>
   </div>
 </div>
 
@@ -759,6 +862,25 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
     </div>
     <div><label>باليتات جاهزة</label><div class="palette-grid" id="paletteGrid"></div></div>
     <div class="modal-row"><button class="btn" onclick="closeModal('modalCustomColor')">إلغاء</button><button class="btn btn-accent" onclick="applyCustomColor()">تطبيق</button></div>
+  </div>
+</div>
+
+<!-- Countdown Setup Modal -->
+<div class="modal-overlay" id="modalCountdown">
+  <div class="modal"><h3>⏱ عداد تنازلي</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:4px;">
+      <div><label>الساعات</label><input type="number" id="cdSetH" value="0" min="0" max="23" placeholder="0"></div>
+      <div><label>الدقائق</label><input type="number" id="cdSetM" value="25" min="0" max="59" placeholder="25"></div>
+      <div><label>الثواني</label><input type="number" id="cdSetS" value="0" min="0" max="59" placeholder="0"></div>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;">
+      <button class="btn" onclick="cdPreset(0,5,0)">5 دق</button>
+      <button class="btn" onclick="cdPreset(0,10,0)">10 دق</button>
+      <button class="btn" onclick="cdPreset(0,25,0)">25 دق 🍅</button>
+      <button class="btn" onclick="cdPreset(0,45,0)">45 دق</button>
+      <button class="btn" onclick="cdPreset(1,0,0)">ساعة</button>
+    </div>
+    <div class="modal-row"><button class="btn" onclick="closeModal('modalCountdown')">إلغاء</button><button class="btn btn-accent" onclick="cdStart()">▶ ابدأ</button></div>
   </div>
 </div>
 
@@ -1083,7 +1205,8 @@ function openPage(id){
     document.querySelectorAll('.shp-opt').forEach(b=>b.classList.toggle('sel',b.dataset.shape===selShape));
     updateShapeLabel(selShape);
     const nl=document.getElementById('numLabel');nl.textContent=page.showNums?'إخفاء الترقيم':'تفعيل الترقيم';
-    updateGoalBar(page);
+    updateGoalBarV2(page);
+    updateGoalToolLabel(page);
   }
   renderGrid();
 }
@@ -1181,7 +1304,7 @@ function toggleC(idx,el){
     el.className=`si si-${page.shape||'circle'} filled ${val==='custom'?'fc':`f${val}`}`;
     if(val==='custom')el.style.setProperty('--custom-color',customColor);
     el.classList.add('si-glow');
-    setTimeout(()=>el.classList.remove('si-glow'),600);
+    el.addEventListener('animationend',()=>el.classList.remove('si-glow'),{once:true});
     const today=dk(new Date());
     if(!page.activity)page.activity={};
     page.activity[today]=(page.activity[today]||0)+1;
@@ -1211,18 +1334,10 @@ function updateMeta(page){
 function updateProgress(page){
   const f=page.circles.filter(v=>v&&v!==0).length,t=page.circles.length;
   document.getElementById('psFill').style.width=(t>0?f/t*100:0)+'%';
-  updateGoalBar(page);renderTabs();
+  updateGoalBarV2(page);renderTabs();
 }
-function updateGoalBar(page){
-  const bar=document.getElementById('goalBar');
-  if(!page.dailyGoal){bar.style.display='none';return;}
-  bar.style.display='flex';
-  const today=dk(new Date());const done=(page.activity||{})[today]||0;
-  const pct=Math.min(100,Math.round(done/page.dailyGoal*100));
-  document.getElementById('goalFill').style.width=pct+'%';
-  document.getElementById('goalPct').textContent=pct+'%';
-  document.getElementById('goalCount').textContent=`${done}/${page.dailyGoal}`;
-}
+/* legacy alias kept for safety */
+function updateGoalBar(page){updateGoalBarV2(page);}
 
 /* ══ NUMS ══ */
 function toggleNums(){
@@ -1364,10 +1479,95 @@ function confirmNewPage(){
   showToast(`📄 "${name}" تم الإنشاء`,'📄');
 }
 
-/* ══ GOAL ══ */
-function openGoalModal(){const page=curPage();if(!page)return;document.getElementById('goalInput').value=page.dailyGoal||0;openModal('modalGoal');}
-function confirmGoal(){const page=curPage();if(!page)return;page.dailyGoal=parseInt(document.getElementById('goalInput').value)||0;save();updateGoalBar(page);closeModal('modalGoal');showToast('🎯 تم تعيين الهدف','🎯');}
+/* ══ GOAL - SMART ══ */
+function openGoalSmart(){
+  const page=curPage();if(!page)return;
+  const today=dk(new Date());
+  const done=(page.activity||{})[today]||0;
+  const total=page.circles.length;
+  const remaining=page.circles.filter(v=>!v||v===0).length;
 
+  // Smart presets based on page size
+  const presets=[];
+  if(total>=10)presets.push(Math.ceil(total*0.1));
+  if(total>=20)presets.push(Math.ceil(total*0.25));
+  if(total>=40)presets.push(Math.ceil(total*0.5));
+  if(remaining>0)presets.push(remaining);
+  const uniquePresets=[...new Set(presets)].slice(0,4);
+
+  const presetsEl=document.getElementById('goalPresets');
+  presetsEl.innerHTML='';
+  uniquePresets.forEach(n=>{
+    const btn=document.createElement('button');
+    btn.className='btn';
+    let lbl=n+'';
+    if(n===Math.ceil(total*0.1))lbl+=' (10%)';
+    else if(n===Math.ceil(total*0.25))lbl+=' (25%)';
+    else if(n===Math.ceil(total*0.5))lbl+=' (50%)';
+    else if(n===remaining)lbl+=' (المتبقي)';
+    btn.textContent=lbl;
+    btn.onclick=()=>{document.getElementById('goalInput').value=n;};
+    presetsEl.appendChild(btn);
+  });
+
+  // Show current status
+  const statusEl=document.getElementById('goalCurrentStatus');
+  const clearBtn=document.getElementById('goalClearBtn');
+  if(page.dailyGoal){
+    statusEl.style.display='block';
+    const pct=Math.min(100,Math.round(done/page.dailyGoal*100));
+    statusEl.innerHTML=`الهدف الحالي: <strong>${page.dailyGoal}</strong> | أنجزت اليوم: <strong>${done}</strong> | التقدم: <strong>${pct}%</strong> ${pct>=100?'🎉':''}`;
+    clearBtn.style.display='block';
+    document.getElementById('goalHint').textContent=`تعديل الهدف الحالي أو إلغاؤه بالكامل`;
+  }else{
+    statusEl.style.display='none';
+    clearBtn.style.display='none';
+    document.getElementById('goalHint').textContent='حدد هدفاً يومياً وسيظهر شريط التقدم أسفل الصفحة 🎉';
+  }
+  document.getElementById('goalInput').value=page.dailyGoal||Math.max(10,Math.ceil(total*0.1))||10;
+  openModal('modalGoal');
+}
+function openGoalModal(){openGoalSmart();}
+function confirmGoal(){
+  const page=curPage();if(!page)return;
+  const val=parseInt(document.getElementById('goalInput').value)||0;
+  if(val<1){showToast('⚠️ الهدف يجب أن يكون 1 أو أكثر','⚠️');return;}
+  page.dailyGoal=val;save();
+  updateGoalBarV2(page);updateGoalToolLabel(page);
+  closeModal('modalGoal');showToast('🎯 تم تعيين الهدف','🎯');
+}
+function clearGoal(){
+  const page=curPage();if(!page)return;
+  page.dailyGoal=0;save();
+  document.getElementById('goalBarV2').style.display='none';
+  updateGoalToolLabel(page);
+  showToast('✅ تم إلغاء الهدف','✅');
+}
+function updateGoalToolLabel(page){
+  const el=document.getElementById('goalToolLabel');if(!el)return;
+  el.textContent=page&&page.dailyGoal?`تعديل الهدف (${page.dailyGoal})`:'تعيين هدف يومي';
+}
+function updateGoalBarV2(page){
+  const bar=document.getElementById('goalBarV2');
+  if(!page||!page.dailyGoal){bar.style.display='none';return;}
+  bar.style.display='flex';
+  const today=dk(new Date());const done=(page.activity||{})[today]||0;
+  const pct=Math.min(100,Math.round(done/page.dailyGoal*100));
+  const fill=document.getElementById('gv2Fill');
+  fill.style.width=pct+'%';
+  fill.className='gv2-fill'+(pct>=100?' done':'');
+  const badge=document.getElementById('gv2Count');
+  badge.textContent=`${done}/${page.dailyGoal} • ${pct}%`;
+  badge.className='gv2-badge'+(pct>=100?' done':'');
+  document.getElementById('gv2Title').textContent=pct>=100?'🎉 أحسنت! هدف اليوم مكتمل':'الهدف اليومي';
+}
+function checkGoal(page){
+  if(!page.dailyGoal)return;
+  const today=dk(new Date());
+  if((page.activity||{})[today]===page.dailyGoal){
+    showToast('🎉 وصلت للهدف اليومي!','🎉');spawnConfetti();haptic(100);
+  }
+}
 /* ══ SHARE ══ */
 function openShareModal(){
   const page=curPage();if(!page)return;
@@ -1490,6 +1690,93 @@ function spawnConfetti(){const cols=['#10b981','#ef4444','#8b5cf6','#f59e0b','#3
 
 /* ══ KEYBOARD ══ */
 document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();undo();}if((e.ctrlKey||e.metaKey)&&e.key==='y'){e.preventDefault();redo();}if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(m=>m.classList.remove('open'));closePageSettings();document.querySelectorAll('.drop-wrap.open').forEach(d=>d.classList.remove('open'));}});
+
+/* ══ COUNTDOWN TIMER ══ */
+let cdTotal=0, cdRemaining=0, cdInterval=null, cdRunning=false;
+const CIRC=2*Math.PI*18; // circumference for r=18
+
+function openCountdownSetup(){
+  openModal('modalCountdown');
+}
+function cdPreset(h,m,s){
+  document.getElementById('cdSetH').value=h;
+  document.getElementById('cdSetM').value=m;
+  document.getElementById('cdSetS').value=s;
+}
+function cdStart(){
+  const h=parseInt(document.getElementById('cdSetH').value)||0;
+  const m=parseInt(document.getElementById('cdSetM').value)||0;
+  const s=parseInt(document.getElementById('cdSetS').value)||0;
+  const total=h*3600+m*60+s;
+  if(total<1){showToast('⚠️ حدد وقتاً','⚠️');return;}
+  closeModal('modalCountdown');
+  cdTotal=total;cdRemaining=total;cdRunning=false;
+  document.getElementById('countdownWidget').style.display='flex';
+  cdRenderTime();cdUpdateArc();
+  document.getElementById('cdIcon').textContent='⏱';
+  document.getElementById('countdownWidget').classList.remove('cd-done');
+  cdPlay();
+}
+function cdPlay(){
+  if(cdInterval)clearInterval(cdInterval);
+  cdRunning=true;
+  document.getElementById('cdPlayBtn').textContent='⏸';
+  document.getElementById('cdPlayBtn').classList.add('active');
+  cdInterval=setInterval(()=>{
+    if(cdRemaining<=0){cdDone();return;}
+    cdRemaining--;
+    cdRenderTime();cdUpdateArc();
+  },1000);
+}
+function cdPause(){
+  clearInterval(cdInterval);cdInterval=null;cdRunning=false;
+  document.getElementById('cdPlayBtn').textContent='▶';
+  document.getElementById('cdPlayBtn').classList.remove('active');
+}
+function cdTogglePlay(){
+  if(cdRemaining<=0){openCountdownSetup();return;}
+  cdRunning?cdPause():cdPlay();
+}
+function cdReset(){
+  cdPause();cdRemaining=cdTotal;
+  cdRenderTime();cdUpdateArc();
+  document.getElementById('countdownWidget').classList.remove('cd-done');
+  document.getElementById('cdIcon').textContent='⏱';
+}
+function cdClose(){
+  cdPause();document.getElementById('countdownWidget').style.display='none';
+}
+function cdDone(){
+  cdPause();cdRemaining=0;
+  cdRenderTime();cdUpdateArc();
+  document.getElementById('countdownWidget').classList.add('cd-done');
+  document.getElementById('cdIcon').textContent='✅';
+  document.getElementById('cdPlayBtn').textContent='↺';
+  showToast('✅ انتهى الوقت!','⏰');haptic(200);spawnConfetti();
+}
+function cdRenderTime(){
+  const h=Math.floor(cdRemaining/3600);
+  const m=Math.floor((cdRemaining%3600)/60);
+  const s=cdRemaining%60;
+  const fmt=n=>String(n).padStart(2,'0');
+  const setTick=(id,val,prev)=>{
+    const el=document.getElementById(id);
+    const newVal=fmt(val);
+    if(el.textContent!==newVal){el.textContent=newVal;el.classList.remove('tick');void el.offsetWidth;el.classList.add('tick');}
+  };
+  setTick('cdH',h);setTick('cdM',m);setTick('cdS',s);
+}
+function cdUpdateArc(){
+  const arc=document.getElementById('cdArc');
+  if(!arc)return;
+  const pct=cdTotal>0?cdRemaining/cdTotal:0;
+  const offset=CIRC*(1-pct);
+  arc.style.strokeDashoffset=offset;
+  // Color shift: green → yellow → red
+  if(pct>0.5)arc.style.stroke='var(--accent)';
+  else if(pct>0.25)arc.style.stroke='var(--warn)';
+  else arc.style.stroke='var(--danger)';
+}
 
 /* ══ BOOT ══ */
 checkWelcome();
