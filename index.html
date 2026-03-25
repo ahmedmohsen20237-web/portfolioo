@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>متابعة انجاز | AHMED MOHSEN</title>
+<title>منجز | AHMED MOHSEN</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7F5E1V1XV8"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-7F5E1V1XV8');</script>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -407,11 +407,7 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
 .cd-done .cd-num{color:var(--warn)!important;}
 .cd-done .cd-ring-fill{stroke:var(--warn)!important;}
 @keyframes cdDone{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-/* ══════════════ PALETTE PICKER ══════════════ */
-.palette-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;}
-.pal-sw{width:100%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:transform .15s,border-color .15s;}
-.pal-sw:hover{transform:scale(1.2);}
-</style>
+/* ══════════════ GOAL BAR V2 ══════════════ */
 .goal-bar-v2{
   margin:0 1rem .3rem;
   background:var(--card);border:1px solid var(--border);border-radius:10px;
@@ -431,7 +427,6 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
 .gv2-badge{font-size:.65rem;font-weight:900;background:var(--accent-light);color:var(--accent);
   border-radius:999px;padding:1px 7px;white-space:nowrap;}
 .gv2-badge.done{background:rgba(52,211,153,.2);color:#059669;}
-
 /* ══════════════ PALETTE PICKER ══════════════ */
 .palette-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;}
 .pal-sw{width:100%;aspect-ratio:1;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:transform .15s,border-color .15s;}
@@ -444,7 +439,7 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
 <div id="welcomePage">
   <div class="welcome-inner">
     <div class="welcome-logo">🎯</div>
-    <h1 class="welcome-title">متابعة انجاز</h1>
+    <h1 class="welcome-title">منجز</h1>
     <p class="welcome-sub">تطبيق مجاني لتتبع أهدافك وإنجازاتك اليومية بطريقة بصرية وممتعة</p>
     <div class="features-grid">
       <div class="feat-card" style="animation-delay:.05s">
@@ -480,7 +475,7 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
 <nav>
   <a href="#" class="nav-logo" onclick="showHome();return false;">
     <span class="logo-dot">🎯</span>
-    <span>متابعة انجاز</span>
+    <span>منجز</span>
   </a>
   <div class="nav-center" id="navTabs"></div>
   <div class="nav-actions">
@@ -501,7 +496,6 @@ footer{background:var(--nav);border-top:1px solid var(--border);padding:.55rem 1
         <input class="search-input" id="searchInput" placeholder="بحث..." oninput="filterCards()">
       </div>
     </div>
-    <div class="stats-bar" id="statsBar"></div>
     <div class="page-cards" id="pageCards"></div>
   </div>
 </div>
